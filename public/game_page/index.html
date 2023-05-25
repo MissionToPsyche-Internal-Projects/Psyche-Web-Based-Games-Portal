@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl7/1mikkM__N6Ls0pHdFqLl7K5I1z6jU6V+Q2RbU7" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl7/1L_dstPt3W4j6xW1lE5J2/qf6M6T6KZST6xjl" crossorigin="anonymous">
+
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap");
+
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: "Rubik", sans-serif;
+        }
+
+        .no-border {
+            border: none !important;
+        }
+
+        .accordion-item {
+            border: none !important;
+        }
+
+        .accordion-item .accordion-button {
+            border: none !important;
+        }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+        }
+
+        #searchInput {
+            display: none;
+            background-color: transparent;
+            border: none;
+            border-bottom: 1px solid white;
+            outline: none;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+        crossorigin="anonymous"></script>
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const themeToggle = document.getElementById("themeToggle");
+            const navbar = document.querySelector(".navbar");
+            const body = document.querySelector("body");
+            const footer = document.querySelector("footer");
+            const themeIcon = document.getElementById("themeIcon");
+
+            let darkMode = false;
+
+            themeToggle.addEventListener("change", () => {
+                darkMode = !darkMode;
+                if (darkMode) {
+                    body.classList.remove("light-mode");
+                    body.classList.add("dark-mode");
+                    navbar.style.backgroundColor = "#2f2344";
+                    body.style.backgroundColor = "#140022";
+                    footer.style.backgroundColor = "#2f2344";
+                    themeIcon.textContent = "nights_stay";
+                } else {
+                    body.classList.remove("dark-mode");
+                    body.classList.add("light-mode");
+                    navbar.style.backgroundColor = "rgba(0, 0, 0, 0.75)";
+                    body.style.backgroundColor = "#ffffff";
+                    footer.style.backgroundColor = "rgba(0, 0, 0, 0.75)";
+                    themeIcon.textContent = "wb_sunny";
+                }
+            });
+            document.getElementById("themeToggle").click();
+        });
+    </script>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img class="me-3" src="https://www.nasa.gov/sites/default/files/thumbnails/image/nasa-logo-web-rgb.png"
+                    alt="NASA Logo" width="70">
+                <img src="../images/Logo.png" alt="Psyche Logo" width="30" class="me-3">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="ms-auto d-flex align-items-center">
+                    <div class="search-container me-3" style="position: relative;">
+                        <input id="searchInput" type="text" placeholder="Search Games"
+                            style="display: none; background: transparent; border: none; color: white;">
+                        <div id="searchResultsContainer" class="bg-light"
+                            style="position: absolute; top: 100%; left: 0; width: 100%; display: none;">
+                            <ul id="searchResultsList" class="list-unstyled m-2"></ul>
+                        </div>
+                    </div>
+                    <span id="searchIcon" class="material-icons text-white me-3" style="cursor: pointer;">search</span>
+                    <div class="form-check form-switch ms-2 me-3">
+                        <input class="form-check-input" type="checkbox" id="themeToggle">
+                        <label class="form-check-label" for="themeToggle"></label>
+                    </div>
+                    <span id="themeIcon" class="material-icons text-white me-2" style="cursor: pointer;">wb_sunny</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <script>
+        const searchIcon = document.getElementById("searchIcon");
+        const searchInput = document.getElementById("searchInput");
+        const searchContainer = document.querySelector(".search-container");
+        const searchResultsContainer = document.getElementById("searchResultsContainer");
+        const searchResultsList = document.getElementById("searchResultsList");
+
+        searchIcon.addEventListener("click", () => {
+            if (searchInput.style.display === "none") {
+                searchInput.style.display = "inline";
+                searchInput.focus();
+            } else {
+                searchInput.style.display = "none";
+                searchInput.value = "";
+                searchResultsContainer.style.display = "none";
+                searchResultsContainer.nodeValue = "";
+            }
+        });
+
+        // Using a timeout to prevent immediate blurring after clicking the search icon
+        searchInput.addEventListener("blur", () => {
+            setTimeout(() => {
+                searchInput.style.display = "none";
+            }, 100);
+        });
+
+        // Clicking anywhere outside the search container will hide the search input field
+        document.addEventListener("click", (event) => {
+            if (!searchContainer.contains(event.target) && event.target !== searchIcon) {
+                searchInput.style.display = "none";
+                searchInput.value = "";
+            }
+        });
+
+        const dummyData = [
+            "Game 1",
+            "Game 2",
+            "Game 3",
+            "WebXR Project 1",
+            "WebXR Project 2",
+            "WebXR Project 3",
+        ];
+
+
+        searchInput.addEventListener("input", (event) => {
+            const searchText = event.target.value.toLowerCase();
+
+            // Filter the dummy data based on the search text
+            const filteredData = dummyData.filter(item => item.toLowerCase().includes(searchText));
+
+            // Clear the existing search results
+            searchResultsList.innerHTML = "";
+
+            // Add the filtered data to the search results list
+            filteredData.forEach(item => {
+                const listItem = document.createElement("li");
+                listItem.textContent = item;
+                searchResultsList.appendChild(listItem);
+            });
+
+            // Show or hide the search results container based on the filtered data length
+            searchResultsContainer.style.display = filteredData.length > 0 ? "block" : "none";
+        });
+
+        // Hide the search results container when clicking outside of it
+        document.addEventListener("click", (event) => {
+            if (!searchContainer.contains(event.target) && event.target !== searchIcon) {
+                searchInput.style.display = "none";
+                searchResultsContainer.style.display = "none";
+                searchResultsContainer.nodeValue = "";
+            }
+        });
+    </script>
+    <!-- Game sections -->
+    <div class="container mt-4">
+        <div class="row">
+            <!-- Game display section -->
+            <!-- Game display section -->
+            <div class="col-md-8 position-relative">
+                <iframe src="../game_files/dummy-game/" id="game-iframe" class="border" width="100%" height="400px"
+                    style="overflow: sc
+                    ;"></iframe>
+                <div class="d-flex justify-content-end">
+                    <button id="fullscreen-button" class="btn btn-sm btn-dark position-absolute"
+                        style="bottom: 90%; right: 2%;">
+                        <i class="fas fa-expand"></i>
+                    </button>
+                </div>
+                <h2 id="game-title" class="mt-3"></h2>
+                <p id="game-description">Game description goes here...</p>
+            </div>
+            <script>
+                const gameIframe = document.getElementById("game-iframe");
+                const fullscreenButton = document.getElementById("fullscreen-button");
+                let isFullscreen = false;
+
+                function toggleFullscreen(elem) {
+                    if (!isFullscreen) {
+                        if (elem.requestFullscreen) {
+                            elem.requestFullscreen();
+                        } else if (elem.mozRequestFullScreen) {
+                            elem.mozRequestFullScreen();
+                        } else if (elem.webkitRequestFullscreen) {
+                            elem.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+                        } else if (elem.msRequestFullscreen) {
+                            elem.msRequestFullscreen();
+                        }
+                    } else {
+                        if (document.exitFullscreen) {
+                            document.exitFullscreen();
+                        } else if (document.mozCancelFullScreen) {
+                            document.mozCancelFullScreen();
+                        } else if (document.webkitExitFullscreen) {
+                            document.webkitExitFullscreen();
+                        } else if (document.msExitFullscreen) {
+                            document.msExitFullscreen();
+                        }
+                    }
+                }
+
+                function adjustIframeDimensions() {
+                    if (isFullscreen) {
+                        gameIframe.style.width = '100%';
+                        gameIframe.style.height = '100%';
+                    } else {
+                        gameIframe.style.width = '100%';
+                        gameIframe.style.height = '400px';
+                    }
+                }
+
+                function fullscreenChangeHandler() {
+                    isFullscreen = !isFullscreen;
+                    adjustIframeDimensions();
+                }
+
+                fullscreenButton.addEventListener("click", () => toggleFullscreen(gameIframe));
+                document.addEventListener('fullscreenchange', fullscreenChangeHandler);
+                document.addEventListener('webkitfullscreenchange', fullscreenChangeHandler);
+                document.addEventListener('mozfullscreenchange', fullscreenChangeHandler);
+                document.addEventListener('MSFullscreenChange', fullscreenChangeHandler);
+            </script>
+
+
+            <!-- Game info section -->
+            <div class="col-md-4">
+                <div class="accordion" id="game-info-accordion">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                About the game
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                            data-bs-parent="#game-info-accordion">
+                            <div class="accordion-body">
+                                <!-- Your game info content here -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Add more accordion items if needed -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Suggested games slider -->
+    <style>
+        .carousel-control-prev,
+        .carousel-control-next {
+            background-color: #e1e1e1;
+            width: 6vh;
+            height: 6vh;
+            border-radius: 50%;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        @media (min-width: 768px) {
+            .carousel-item {
+                margin-right: 0;
+                flex: 0 0 33.333333%;
+                display: block;
+            }
+
+            .carousel-inner {
+                display: flex;
+            }
+        }
+    </style>
+    <div class="container mt-4">
+        <div id="carouselExampleControls" class="carousel" data-bs-ride="carousel">
+            <div class="carousel-inner">
+
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+    <style>
+        .play-link p {
+            color: white;
+        }
+
+        .bug-text {
+            font-size: 12px;
+        }
+
+        .card:hover .hidden {
+            opacity: 1;
+            visibility: visible;
+            transition: opacity 0.3s, visibility 0.3s;
+        }
+
+        .hidden {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+        }
+
+
+        #carouselExampleControls .card {
+            background-color: #2f2344;
+            border-radius: 30px;
+            color: white;
+        }
+
+        .card-img-top {
+            border-radius: 20px 20px 0px 0px;
+        }
+
+        .light-mode .game-link.active {
+            color: black;
+        }
+
+        .dark-mode .game-link.active {
+            color: white;
+        }
+
+        .light-mode .game-link:not(.active) {
+            color: grey;
+        }
+
+        .dark-mode .game-link:not(.active) {
+            color: grey;
+        }
+
+        .light-mode .game-link:not(.active):hover {
+            color: black;
+        }
+
+        .dark-mode .game-link:not(.active):hover {
+            color: white;
+        }
+
+        .light-mode .game-name,
+        .light-mode .game-description {
+            color: black;
+        }
+
+        .dark-mode .game-name,
+        .dark-mode .game-description {
+            color: white;
+        }
+
+        .light-mode .divider {
+            background-color: black;
+        }
+
+        .dark-mode .divider {
+            background-color: #2f2344;
+        }
+    </style>
+
+    <!-- Footer -->
+    <footer class="footer mt-auto py-3 bg-light">
+        <!-- Your footer content here -->
+    </footer <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+
+    <script>
+        // Parse the game ID from the URL
+        const games = [
+            {
+                id: 'jolts-journey',
+                title: 'JOLTS JOURNEY',
+                thumbnail: 'nasa-psyche-mission.png',
+                difficulty: 'Easy',
+                genre: 'Arcade',
+                age: 'Elementary',
+                class: 'Nickel - 2022',
+                gtype: 'nickel',
+                video: 'jolts.mp4',
+            },
+            {
+                id: 'return-from-psyche',
+                title: 'RETURN FROM PSYCHE',
+                thumbnail: 'nasa-psyche-mission.png',
+                difficulty: 'Medium',
+                genre: 'Adventure',
+                age: 'Middle School',
+                class: 'Copper - 2022',
+                gtype: 'copper',
+                video: 'return_from_psyche.mp4'
+            },
+            {
+                id: 'survive-to-psyche',
+                title: 'SURVIVE TO PSYCHE',
+                thumbnail: 'nasa-psyche-mission.png',
+                difficulty: 'Medium',
+                genre: 'Adventure',
+                age: 'Middle School',
+                class: 'Nickel - 2022',
+                gtype: 'nickel',
+                video: 'survive_to_psyche.mov'
+            },
+            {
+                id: 'passage-to-psyche',
+                title: 'PASSAGE TO PSYCHE',
+                thumbnail: 'nasa-psyche-mission.png',
+                difficulty: 'Medium',
+                genre: 'Arcade',
+                age: 'Middle School',
+                class: 'Nickel - 2022',
+                gtype: 'nickel',
+                video: '',
+            },
+            {
+                id: 'jump-to-psyche',
+                title: 'JUMP TO PSYCHE',
+                thumbnail: 'nasa-psyche-mission.png',
+                difficulty: 'Hard',
+                genre: 'Knowledge Quiz',
+                age: 'Middle School',
+                class: 'Nickel - 2022',
+                gtype: 'nickel',
+                video: '',
+            },
+            {
+                id: 'psyche-driller',
+                title: 'PSYCHE DRILLER',
+                thumbnail: 'nasa-psyche-mission.png',
+                difficulty: 'Hard',
+                genre: 'Adventure',
+                age: 'High',
+                class: 'Nickel - 2022',
+                gtype: 'nickel',
+                video: '',
+            },
+            {
+                id: 'journey-to-psyche',
+                title: 'JOURNEY TO PSYCHE',
+                thumbnail: 'nasa-psyche-mission.png',
+                difficulty: 'Medium',
+                genre: 'Trivia',
+                age: 'Middle School',
+                class: 'Nickel - 2022',
+                gtype: 'nickel',
+                video: '',
+            },
+            {
+                id: 'nasa-psyche-mission',
+                title: 'NASA PSYCHE MISSION',
+                thumbnail: 'nasa-psyche-mission.png',
+                difficulty: 'Easy',
+                genre: 'Arcade',
+                age: 'Elementary',
+                class: 'Nickel - 2022',
+                gtype: 'nickel',
+                video: '',
+            },
+            // Add more games as needed
+        ];
+        const urlSearchParams = new URLSearchParams(window.location.search);
+        const gameId = urlSearchParams.get('gameId');
+
+        // Find the current game and suggested games from the `games` array
+        const currentGame = games.find(game => game.id === gameId);
+        const suggestedGames = games.filter(game => game.id !== gameId);
+
+        // Set the game display
+        document.getElementById('game-iframe').src = `../game_files/${currentGame.id}/index.html`;
+        document.getElementById('game-title').innerText = currentGame.title;
+        document.getElementsByTagName("title").value = currentGame.title;
+        // Add more data to the game display if needed
+
+        // Create the suggested games carousel items
+
+        function createSuggestedGameItems() {
+            const suggestedCarousel = document.getElementsByClassName('carousel-inner')[0];
+            for (let i = 0; i < suggestedGames.length; i++) {
+                const carouselItem = document.createElement('div');
+                carouselItem.classList.add('carousel-item');
+
+                if (i === 0) {
+                    carouselItem.classList.add('active');
+                }
+
+                carouselItem.appendChild(createGameCard(suggestedGames[i]));
+                suggestedCarousel.appendChild(carouselItem);
+            }
+        }
+
+
+        function createGameCard(game) {
+            let card = document.createElement("div");
+            card.style.height = "80%";
+            card.setAttribute("game-class", game.class);
+            card.setAttribute("game-genre", game.genre);
+            card.setAttribute("game-age", game.age);
+            card.setAttribute("game-difficulty", game.difficulty);
+            card.classList.add(
+                // "border",
+                "border-0",
+                "col-8",
+                "p-0",
+                "ms-5",
+                "mb-5",
+                "card"
+            );
+
+            let cardContent = document.createElement("div");
+
+
+            cardContent.classList.add("card-body");
+
+            let cardTitle = document.createElement("h6");
+            cardTitle.innerHTML = game.id.split("-").join(" ").toUpperCase();
+            cardTitle.classList.add("card-title");
+
+            let projectScreenshot = document.createElement("img");
+            projectScreenshot.classList.add("card-img-top");
+            projectScreenshot.src = `../images/${game.id}.png`;
+            projectScreenshot.onerror = () => projectScreenshot.src = '../images/error.png'
+            projectScreenshot.style.width = "100%";
+            projectScreenshot.style.height = "100%";
+            projectScreenshot.style.borderRight = "none";
+            projectScreenshot.style.borderLeft = "none";
+            projectScreenshot.style.borderTop = "none";
+            projectScreenshot.style.borderBottom = "0.5px solid white";
+
+            let btnGroup = document.createElement("div");
+            btnGroup.className = "btn-group";
+            btnGroup.setAttribute("role", "group");
+
+            let bugBtn = document.createElement("button");
+            bugBtn.setAttribute("type", "button");
+            bugBtn.setAttribute("data-bs-toggle", "modal");
+            bugBtn.setAttribute("data-bs-target", "#bugReportModal");
+            bugBtn.setAttribute("title", "Report a bug");
+            bugBtn.classList.add("btn", "btn-danger", "rounded", "ms-5", "mb-2", "hidden");
+            bugBtn.onclick = handleBugBtn.bind(this, game.id);
+
+            let bugText = document.createElement("span");
+            bugText.classList.add("bug-text");
+            bugText.innerHTML = "Report a Bug";
+
+            bugBtn.appendChild(bugText);
+
+
+            let playLink = document.createElement("div");
+            playLink.className = "play-link";
+            playLink.style.cursor = "pointer";
+            playLink.onclick = () => {
+                if (game.id == "journey-to-psyche") {
+                    window.open(`../${game.id}/journey_to_psyche.html`)
+                } else if (game.id == "15I") {
+                    window.open(`../${game.id}/src`)
+                } else {
+                    window.open(`/public/game_page?gameId=${game.id}`)
+                }
+            };
+            let playText = document.createElement("p");
+            playText.style.fontSize = "20px";
+            playText.style.marginTop = "-8px";
+            playText.innerHTML = "Play";
+
+            let playDivider = document.createElement("div");
+            playDivider.style.marginTop = "-15px";
+            playDivider.style.width = "50px";
+            playDivider.style.height = "2px";
+            playDivider.style.background = "linear-gradient(to right, #140022, #FF5F6D, #FFC371)";
+            playLink.appendChild(playText);
+            playLink.appendChild(playDivider);
+
+            btnGroup.appendChild(playLink);
+            btnGroup.appendChild(bugBtn);
+
+            cardContent.appendChild(cardTitle);
+            cardContent.appendChild(btnGroup);
+
+            card.appendChild(projectScreenshot);
+            card.appendChild(cardContent);
+
+            return card;
+        }
+        createSuggestedGameItems();
+        function handleBugBtn(projectID) {
+            let currentDate = new Date().toISOString();
+
+            document.getElementById('projectID').value = projectID;
+            document.getElementById('currentDate').value = currentDate.substr(0, 10);
+            document.getElementById('environmentInfo').value = navigator.userAgent;
+
+            // clear form
+            document.getElementById('bugSummaryTA').value = "";
+            document.getElementById('actionPerformedTA').value = "";
+            document.getElementById('expectedResultTA').value = "";
+            document.getElementById('actualResultTA').value = "";
+            document.getElementById('errorMessageTA').value = "";
+
+            // submit form
+            document.getElementById('submitBtn').addEventListener('click', () => {
+                // Add a new document with a generated id.
+                db.collection(projectID).add({
+                    projectID: projectID,
+                    date: currentDate,
+                    reporterName: document.getElementById('reporterName').value,
+                    environment: navigator.userAgent,
+                    bugSummary: document.getElementById('bugSummaryTA').value,
+                    actionPerformed: document.getElementById('actionPerformedTA').value,
+                    expectedResult: document.getElementById('expectedResultTA').value,
+                    actualResult: document.getElementById('actualResultTA').value,
+                    errorMessage: document.getElementById('errorMessageTA').value
+                })
+                    .then(() => {
+                        var bugReportModal = document.getElementById('bugReportModal');
+                        var modal = bootstrap.Modal.getInstance(bugReportModal); // Returns a Bootstrap modal instance
+                        modal.toggle();
+
+                        var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+                        var toastList = toastElList.map(function (toastEl) {
+                            return new bootstrap.Toast(toastEl, {})
+                        });
+
+                        toastList[0].show();
+                    })
+                    .catch((error) => {
+                        console.error("Error adding document: ", error);
+                    })
+            })
+        }
+
+
+    </script>
+    <script>
+        var multipleCardCarousel = document.querySelector(
+            "#carouselExampleControls"
+        );
+        if (window.matchMedia("(min-width: 768px)").matches) {
+            var carousel = new bootstrap.Carousel(multipleCardCarousel, {
+                interval: false,
+            });
+            var carouselWidth = $(".carousel-inner")[0].scrollWidth;
+            var cardWidth = $(".carousel-item").width();
+            var scrollPosition = 0;
+            $("#carouselExampleControls .carousel-control-next").on("click", function () {
+                if (scrollPosition < carouselWidth - cardWidth * 4) {
+                    scrollPosition += cardWidth;
+                    $("#carouselExampleControls .carousel-inner").animate(
+                        { scrollLeft: scrollPosition },
+                        600
+                    );
+                }
+            });
+            $("#carouselExampleControls .carousel-control-prev").on("click", function () {
+                if (scrollPosition > 0) {
+                    scrollPosition -= cardWidth;
+                    $("#carouselExampleControls .carousel-inner").animate(
+                        { scrollLeft: scrollPosition },
+                        600
+                    );
+                }
+            });
+        } else {
+            $(multipleCardCarousel).addClass("slide");
+        }
+    </script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-firestore.js"></script>
+</body>
+
+</html>

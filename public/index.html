@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+	<!-- Bootstrap CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous" />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"
+		integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl7/1mikkM__N6Ls0pHdFqLl7K5I1z6jU6V+Q2RbU7" crossorigin="anonymous">
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.min.css">
+
+	<title>NASA Psyche Capstone Web Projects Portal</title>
+
+	<link rel="icon" type="image/png" href="images/Logo.png" />
+
+	<style>
+		@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap");
+		/* @import url('https://fonts.googleapis.com/css2?family=Play&display=swap'); */
+		@import url('https://fonts.googleapis.com/css2?family=Play:wght@700&display=swap');
+		@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+		@import url('https://fonts.googleapis.com/css2?family=Expletus+Sans:wght@500&display=swap');
+		@import url('https://fonts.googleapis.com/css2?family=Exo:wght@500&display=swap');
+		@font-face {
+            font-family: "nasalization";
+            src: url("./fonts/nasalizationrg.otf") format("truetype");
+        }
+		@import url();
+		* {
+			margin: 0;
+			padding: 0;
+			font-family: "Rubik", sans-serif;
+		}
+
+		#header-title {
+			font-family: 'nasalization';
+		}
+
+		/* Footer styles */
+		footer {
+			background-color: #302144;
+			color: white;
+			padding: 20px;
+		}
+
+		/* Search input styles */
+		#searchInput {
+			display: none;
+			background-color: transparent;
+			border: none;
+			border-bottom: 1px solid white;
+			outline: none;
+			color: white;
+		}
+
+		.grayscale {
+			filter: grayscale(100%);
+		}
+
+		#header-title{
+			text-align: center;
+			color: white;
+			padding-left: 100px;
+		}
+	</style>
+</head>
+<style>
+	.navbar-toggler-icon {
+		background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+	}
+</style>
+
+<body onload="passwordProtecion()">
+	<nav class="navbar navbar-expand-lg">
+		<div class="container">
+			<a class="navbar-brand me-0 d-flex align-items-center" href="https://www.nasa.gov/psyche" target="_blank">
+				<img class="me-2" src="https://upload.wikimedia.org/wikipedia/commons/e/e5/NASA_logo.svg"
+					alt="NASA Logo" width="50">
+			</a>
+			<div class="divider bg-white" style="width:1px; height:35px;"></div>
+			<a class="navbar-brand d-flex align-items-center" href="https://psyche.asu.edu/" target="_blank">
+				<img class="ms-3" src="images/Logo.png" alt="Psyche Logo" width="40" class="me-3">
+			</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+				aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<h3 id="header-title">Psyche Capstone Web Based Projects</h3>
+				<div class="ms-auto d-flex align-items-center">
+					
+					<div class="search-container me-3" style="position: relative;">
+						<input id="searchInput" type="text" placeholder="Search Games"
+							style="display: none; background: transparent; border: none; color: white;">
+						<!-- <div id="searchResultsContainer" class="bg-light"
+							style="position: absolute; top: 100%; left: 0; width: 100%; display: none;">
+							<ul id="searchResultsList" class="list-unstyled m-2"></ul>
+						</div> -->
+					</div>
+					<!-- <span id="searchIcon" class="material-icons text-white me-3" style="cursor: pointer; padding-right: 100px;">search</span> -->
+					<span id="themeIcon" class="material-icons text-white me-2" >wb_sunny</span>
+					<div class="form-check form-switch ms-2 me-3">
+						<label class="form-check-label" for="themeToggle"></label>
+						<input class="form-check-input" type="checkbox" id="themeToggle">
+						
+					</div>
+					
+				</div>
+			</div>
+		</div>
+	</nav>
+
+	<div class="container mt-5">
+
+		<!-- <div class="mt-5" id="passwordProtection">
+			<h3 class="fw-bold">Password</h3>
+			<input type="password" class="form-control w-25" id="passwordInput">
+			<p id="incorrectPasswordError" class="text-danger">Incorrect password!</p>
+			<button type="button" id="passwordSubmitBtn" class="btn btn-primary mt-2">Submit</button>
+		</div> -->
+		<style>
+			.play-link p {
+				color: white;
+			}
+
+			.bug-text {
+				font-size: 12px;
+			}
+
+			.card:hover .hidden {
+				opacity: 1;
+				visibility: visible;
+				transition: opacity 0.3s, visibility 0.3s;
+			}
+
+			.hidden {
+				opacity: 0;
+				visibility: hidden;
+				transition: opacity 0.3s, visibility 0.3s;
+			}
+
+
+			#projectsGroup16 .card {
+				background-color: #2f2344;
+				border-radius: 15px;
+				color: white;
+			}
+
+			.light-mode .game-link.active {
+				color: black;
+			}
+
+			.dark-mode .game-link.active {
+				color: white;
+			}
+
+			.light-mode .game-link:not(.active) {
+				color: grey;
+			}
+
+			.dark-mode .game-link:not(.active) {
+				color: grey;
+			}
+
+			.light-mode .game-link:not(.active):hover {
+				color: black;
+			}
+
+			.dark-mode .game-link:not(.active):hover {
+				color: white;
+			}
+
+			.light-mode .game-name,
+			.light-mode .game-description {
+				color: black;
+			}
+
+			.dark-mode .game-name,
+			.dark-mode .game-description {
+				color: white;
+			}
+
+			.light-mode .divider {
+				background-color: black;
+			}
+
+			.dark-mode .divider {
+				background-color: #2f2344;
+			}
+
+			.light-mode .video-container {
+				box-shadow: 0px 0px 20px -8px black;
+			}
+
+			.dark-mode .video-container {
+				box-shadow: 0px 0px 20px -8px white;
+			}
+		</style>
+		<div class="container mt-4">
+			<div class="row ms-2">
+				<div class="col-md-8">
+					<div class="video-container" style="overflow: hidden; border-radius: 30px;">
+						<video width="100%" autoplay muted>
+							<source src="./data/media/jolts.mp4" type="video/mp4">
+							Your browser does not support the video tag.
+						</video>
+					</div>
+					<h3 class="mt-4 game-name">Jolts Journey</h3>
+					<p class="game-description">Game description goes here. This is a brief description of the game that
+						provides more
+						information about the gameplay, objectives, and other important details.</p>
+				</div>
+				<div class="col-md-4">
+					<ul class="list-unstyled ms-5">
+						<li class="mb-4">
+							<a href="#" class="d-flex align-items-center game-link active"
+								style="text-decoration: none;">
+								<img class="me-2 game-icon" style="border-radius:10px"
+									src="./data/media/thumbnails/nickel/joltsl_journey.jpg" alt="Game 1" width="70px"
+									height="70px" class="me-2">
+								<span>Jolts Journey</span>
+							</a>
+						</li>
+						<li class="mb-4">
+							<a href="#" class="d-flex align-items-center game-link" style="text-decoration: none;">
+								<img class="me-2 game-icon grayscale" style="border-radius:10px"
+									src="./data/media/thumbnails/copper/return_from_psyche.jpg" alt="Game 2"
+									width="70px" height="70px" class="me-2">
+								<span>Return From Psyche</span>
+							</a>
+						</li>
+						<li class="mb-4">
+							<a href="#" class="d-flex align-items-center game-link" style="text-decoration: none;">
+								<img class="me-2 game-icon grayscale" style="border-radius:10px"
+									src="./data/media/thumbnails/nickel/survive_to_psyche.jpg" alt="Game 3" width="70px"
+									height="70px" class="me-2">
+								<span>Survive To Psyche</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="divider mx-auto my-4" style="width: 100%; height: 3px;"></div>
+
+		</div>
+
+		<script>
+			var videoLinks = ['./data/media/jolts.mp4', './data/media/return_from_psyche.mp4', './data/media/survive_to_psyche.mov']
+			var gameData = [{ "name": "Jolts Journey", "description": "something" }, { "name": "Return From Psyche", "description": "something" }, { "name": "Survive to Psyche", "description": "something" }]
+			const gameLinks = document.querySelectorAll('.container ul li a');
+
+			const video = document.querySelector('.container video');
+			const gameIcons = document.querySelectorAll(".game-icon");
+
+			video.addEventListener("ended", () => {
+				let currentIconIndex = -1;
+
+				// Find the index of the currently colored icon
+				for (let i = 0; i < gameIcons.length; i++) {
+					if (!gameIcons[i].classList.contains("grayscale")) {
+						currentIconIndex = i;
+						break;
+					}
+				}
+
+				// Add the bw class to the currently colored icon and remove it from the next icon
+				gameIcons[currentIconIndex].classList.add("grayscale");
+				gameIcons[(currentIconIndex + 1) % gameIcons.length].classList.remove("grayscale");
+
+				gameLinks[currentIconIndex].classList.remove("active");
+				gameLinks[(currentIconIndex + 1) % gameLinks.length].classList.add("active");
+
+				// Update the video source and start playing the next video
+				video.src = videoLinks[(currentIconIndex + 1) % videoLinks.length];
+				document.querySelector('.game-name').innerHTML = gameData[(currentIconIndex + 1) % gameData.length].name;
+				document.querySelector('.game-description').innerHTML = gameData[(currentIconIndex + 1) % gameData.length].description;
+				video.play();
+			});
+
+
+		</script>
+		<style>
+			.no-border {
+				border: none !important;
+				border-right: none !important;
+				border-top: none !important;
+			}
+
+			.accordion-item {
+				border-left: none !important;
+				border-right: none !important;
+				border-top: none !important;
+			}
+
+			.accordion-item .accordion-button {
+				border-left: none !important;
+				border-right: none !important;
+				border-top: none !important;
+			}
+		</style>
+		<style>
+			/* Checkbox styles for Light mode */
+			.light-mode #themeToggle {
+				background-color: white;
+			}
+
+			.light-mode .form-check-input {
+				border: 1px solid #000;
+			}
+
+			.light-mode .form-check-input:checked {
+				border-color: #000;
+			}
+
+			/* Checkbox styles for Dark mode */
+			.dark-mode .form-check-input {
+				background-color: transparent;
+				border: 1px solid #fff;
+			}
+
+			.dark-mode .form-check-input:checked {
+				border-color: transparent;
+				background-color: #000;
+				/* border-image: linear-gradient(to bottom right, #FFA500, #FF4500);
+				border-image-slice: 1; */
+			}
+
+			/* Accordion toggle arrow colors */
+
+			/* Light Mode */
+			.light-mode .accordion-button.collapsed::after {
+				background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M7 16L16 7 25 16'/%3E%3C/svg%3E");
+				rotate: 180deg;
+			}
+
+			/* Dark Mode */
+			.dark-mode .accordion-button.collapsed::after {
+				background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M7 16L16 7 25 16'/%3E%3C/svg%3E");
+				rotate: 180deg;
+			}
+		</style>
+
+		<div class="container mt-5">
+			<div class="row">
+				<div class="col-md-3">
+					<div class="card no-border">
+						<div class="card-header">
+							<h5 class="card-title mb-0">Filters</h5>
+						</div>
+						<div class="card-body no-border">
+							<div class="accordion" id="filterAccordion">
+								<!-- Class Filter -->
+								<div class="accordion-item">
+									<h2 class="accordion-header" id="classHeading">
+										<button class="accordion-button collapsed" type="button"
+											data-bs-toggle="collapse" data-bs-target="#classFilter"
+											aria-expanded="false" aria-controls="classFilter">
+											Class
+										</button>
+									</h2>
+									<div id="classFilter" class="accordion-collapse collapse"
+										aria-labelledby="classHeading">
+										<div class="accordion-body">
+											<div class="form-check">
+												<input class="form-check-input" type="checkbox" value="Copper - 2022"
+													id="copperClass">
+												<label class="form-check-label" for="copperClass">
+													Copper - 2022
+												</label>
+											</div>
+											<div class="form-check">
+												<input class="form-check-input" type="checkbox" value="Nickel - 2022"
+													id="nickelClass">
+												<label class="form-check-label" for="nickelClass">
+													Nickel - 2022
+												</label>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- Genre Filter -->
+								<div class="accordion-item">
+									<h2 class="accordion-header" id="genreHeading">
+										<button class="accordion-button collapsed" type="button"
+											data-bs-toggle="collapse" data-bs-target="#genreFilter"
+											aria-expanded="false" aria-controls="genreFilter">
+											Genre
+										</button>
+									</h2>
+									<div id="genreFilter" class="accordion-collapse collapse"
+										aria-labelledby="genreHeading">
+										<div class="accordion-body">
+											<div class="form-check">
+												<input class="form-check-input" type="checkbox" value="Arcade"
+													id="arcadeGenre">
+												<label class="form-check-label" for="arcadeGenre">
+													Arcade
+												</label>
+											</div>
+											<div class="form-check">
+												<input class="form-check-input" type="checkbox" value="Adventure"
+													id="adventureGenre">
+												<label class="form-check-label" for="adventureGenre">
+													Adventure
+												</label>
+											</div>
+											<div class="form-check">
+												<input class="form-check-input" type="checkbox" value="Simulation"
+													id="simulationGenre">
+												<label class="form-check-label" for="simulationGenre">
+													Simulation
+												</label>
+											</div>
+											<div class="form-check">
+												<input class="form-check-input" type="checkbox" value="Trivia"
+													id="triviaGenre">
+												<label class="form-check-label" for="triviaGenre">
+													Trivia
+												</label>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<!-- Age Filter -->
+								<div class="accordion-item">
+									<h2 class="accordion-header" id="ageHeading">
+										<button class="accordion-button collapsed" type="button"
+											data-bs-toggle="collapse" data-bs-target="#ageFilter" aria-expanded="false"
+											aria-controls="ageFilter">
+											Age
+										</button>
+									</h2>
+									<div id="ageFilter" class="accordion-collapse collapse"
+										aria-labelledby="ageHeading">
+										<div class="accordion-body">
+											<div class="form-check">
+												<input class="form-check-input" type="checkbox" value="Elementary"
+													id="elementaryAge">
+												<label class="form-check-label" for="elementaryAge">
+													Elementary
+												</label>
+											</div>
+											<div class="form-check">
+												<input class="form-check-input" type="checkbox" value="Middle School"
+													id="middleSchoolAge">
+												<label class="form-check-label" for="middleSchoolAge">
+													Middle School
+												</label>
+											</div>
+											<div class="form-check">
+												<input class="form-check-input" type="checkbox" value="High School"
+													id="highSchoolGenre">
+												<label class="form-check-label" for="highSchoolGenre">
+													High School
+												</label>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<!-- Difficulty Filter -->
+								<div class="accordion-item">
+									<h2 class="accordion-header" id="difficultyHeading">
+										<button class="accordion-button collapsed" type="button"
+											data-bs-toggle="collapse" data-bs-target="#difficultyFilter"
+											aria-expanded="false" aria-controls="difficultyFilter">
+											Difficulty
+										</button>
+									</h2>
+									<div id="difficultyFilter" class="accordion-collapse collapse"
+										aria-labelledby="difficultyHeading">
+										<div class="accordion-body">
+											<div class="form-check">
+												<input class="form-check-input" type="checkbox" value="Easy"
+													id="easyDifficulty">
+												<label class="form-check-label" for="easyDifficulty">
+													Easy
+												</label>
+											</div>
+											<div class="form-check">
+												<input class="form-check-input" type="checkbox" value="Medium"
+													id="mediumDifficulty">
+												<label class="form-check-label" for="mediumDifficulty">
+													Medium
+												</label>
+											</div>
+											<div class="form-check">
+												<input class="form-check-input" type="checkbox" value="Hard"
+													id="hardDifficulty">
+												<label class="form-check-label" for="hardDifficulty">
+													Hard
+												</label>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<style>
+					.card {
+						border-radius: 0px;
+					}
+
+					.light-mode .card.no-border .card-header,
+					.light-mode .card.no-border .accordion-button,
+					.light-mode .card.no-border .accordion-body {
+						background-color: #fff;
+						color: #000;
+					}
+
+					/* Dark Mode */
+					.dark-mode .card.no-border,
+					.dark-mode .card.no-border .card-header,
+					.dark-mode .card.no-border .accordion-button,
+					.dark-mode .card.no-border .accordion-body {
+						background-color: #130022;
+						color: #fff;
+					}
+
+
+					.card-img-top {
+						border-radius: 15px 15px 0px 0px;
+					}
+
+					/* Light Mode */
+					.light-mode .sort-text {
+						color: #000;
+					}
+
+					/* Dark Mode */
+					.dark-mode .sort-text {
+						color: #fff;
+					}
+				</style>
+				<script>
+					let sortAscending = true;
+
+					function toggleSort() {
+						const projectGroups = document.querySelectorAll("#projectCards .row");
+						const sortIcon = document.getElementById("sortIcon");
+
+						projectGroups.forEach(group => {
+							const sortedGroup = Array.from(group.children).sort((a, b) => {
+								const aName = a.querySelector(".card-title").innerText;
+								const bName = b.querySelector(".card-title").innerText;
+
+								if (sortAscending) {
+									return aName.localeCompare(bName);
+								} else {
+									return bName.localeCompare(aName);
+								}
+							});
+
+							group.innerHTML = "";
+							sortedGroup.forEach(card => {
+								group.appendChild(card);
+							});
+						});
+
+						if (sortAscending) {
+							sortIcon.classList.replace("bi-caret-down-fill", "bi-caret-up-fill");
+						} else {
+							sortIcon.classList.replace("bi-caret-up-fill", "bi-caret-down-fill");
+						}
+
+						sortAscending = !sortAscending;
+					}
+				</script>
+
+				<div class="col-md-9">
+					<!-- Add this just above the projectCards div -->
+					<div class="row">
+						<div class="col ms-5">
+							<div class="d-flex align-items-center mb-2">
+
+								<button class="btn btn-link text-decoration-none sort-text" id="sortButton"
+									onclick="toggleSort()">
+									Sort: Alphabetically <i class="bi bi-caret-down-fill" id="sortIcon"></i>
+								</button>
+
+							</div>
+						</div>
+					</div>
+					<div id="projectCards">
+						<!-- Website Content -->
+
+						<!-- Project Cards -->
+						<div class="row mt-3" id="projectsGroup15">
+							<!-- Cards injected here via app.js -->
+						</div>
+						<div class="row mt-3 ms-3" id="projectsGroup16"></div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+
+		<!-- Modal -->
+		<div class="modal fade" id="bugReportModal" tabindex="-1" aria-labelledby="bugReportModalLabel"
+			aria-hidden="true">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h1 class="modal-title" id="bugReportModalLabel" style="color: #302144">Bug Report</h1>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<form>
+							<!-- Basic Info -->
+							<h4>Device Information</h4>
+							<div class="row">
+								<div class="col-12 col-lg">
+									<input readonly class="form-control" type="text" id="projectID" aria-label="Date">
+								</div>
+								<div class="col-12 col-lg">
+									<input class="form-control" type="date" id="currentDate" aria-label="Date">
+								</div>
+								<div class="col-12 col-lg">
+									<input type="text" class="form-control" id="reporterName"
+										placeholder="Reporter's name" aria-label="Reporter's name">
+								</div>
+							</div>
+							<div class="mt-3">
+								<input readonly id="environmentInfo" type="text" class="form-control"
+									aria-label="Device Info">
+							</div>
+
+							<!-- Bug Experienced -->
+							<h4 class="mt-5">Bug Experienced</h4>
+							<div class="mt-3">
+								<label for="bugSummaryTA" class="form-label">Summary of the bug encountered</label>
+								<textarea class="form-control" id="bugSummaryTA" rows="5"></textarea>
+							</div>
+
+							<!-- Bug Details -->
+							<h4 class="mt-5">Bug Details (optional)</h4>
+							<p><em>Please submit a separate form for each bug</em></p>
+							<div class="mt-3">
+								<label for="actionPerformedTA" class="form-label">Action Performed</label>
+								<textarea class="form-control" id="actionPerformedTA" rows="3"></textarea>
+							</div>
+							<div class="mt-3">
+								<label for="expectedResultTA" class="form-label">Expected Result</label>
+								<textarea class="form-control" id="expectedResultTA" rows="3"></textarea>
+							</div>
+							<div class="mt-3">
+								<label for="actualResultTA" class="form-label">Actual Result</label>
+								<textarea class="form-control" id="actualResultTA" rows="3"></textarea>
+							</div>
+							<div class="mt-3">
+								<label for="errorMessageTA" class="form-label">Error Message (if applicable)</label>
+								<textarea class="form-control" id="errorMessageTA" rows="1"></textarea>
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+							Close
+						</button>
+						<button type="button" class="btn btn-success" id="submitBtn">Submit</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 5">
+			<div id="liveToast" class="toast hide bg-success" role="alert" aria-live="assertive" aria-atomic="true">
+				<div class="toast-header">
+					<img src="images/Logo.png" width="15px" class="rounded me-2" alt="...">
+					<strong class="me-auto">Capstone Review App</strong>
+					<small>now</small>
+					<button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+				</div>
+				<div class="toast-body text-white">
+					Bug report successfully submitted! Thank you!
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<!-- The core Firebase JS SDK is always required and must be listed first -->
+	<script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-app.js"></script>
+
+	<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+	<script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-analytics.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-firestore.js"></script>
+
+	<script>
+		// Your web app's Firebase configuration
+		// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+		var firebaseConfig = {
+			apiKey: "AIzaSyBpQhOJXToxEVE1XY-mxHp2tpjNP5am-Cg",
+			authDomain: "capstone-web-projects.firebaseapp.com",
+			projectId: "capstone-web-projects",
+			storageBucket: "capstone-web-projects.appspot.com",
+			messagingSenderId: "58515034360",
+			appId: "1:58515034360:web:0511a887c67ceaaf906b0d",
+			measurementId: "G-WQ16031BLW"
+		};
+		// Initialize Firebase
+		var app = firebase.initializeApp(firebaseConfig);
+		firebase.analytics();
+		db = firebase.firestore(app);
+	</script>
+
+	<!-- Bootstrap Bundle with Popper -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+		crossorigin="anonymous"></script>
+	<script src="app.js"></script>
+	<script>
+		// const searchIcon = document.getElementById("searchIcon");
+		// const searchInput = document.getElementById("searchInput");
+		// const searchContainer = document.querySelector(".search-container");
+		// const searchResultsContainer = document.getElementById("searchResultsContainer");
+		// const searchResultsList = document.getElementById("searchResultsList");
+
+		// searchIcon.addEventListener("click", () => {
+		// 	if (searchInput.style.display === "none") {
+		// 		searchInput.style.display = "inline";
+		// 		searchInput.focus();
+		// 	} else {
+		// 		searchInput.style.display = "none";
+		// 		searchInput.value = "";
+		// 		searchResultsContainer.style.display = "none";
+		// 		searchResultsContainer.nodeValue = "";
+		// 	}
+		// });
+
+		// Using a timeout to prevent immediate blurring after clicking the search icon
+		// searchInput.addEventListener("blur", () => {
+		// 	setTimeout(() => {
+		// 		searchInput.style.display = "none";
+		// 	}, 100);
+		// });
+
+		// Clicking anywhere outside the search container will hide the search input field
+		// document.addEventListener("click", (event) => {
+		// 	if (!searchContainer.contains(event.target) && event.target !== searchIcon) {
+		// 		searchInput.style.display = "none";
+		// 		searchInput.value = "";
+		// 	}
+		// });
+
+		// const dummyData = [
+		// 	"Game 1",
+		// 	"Game 2",
+		// 	"Game 3",
+		// 	"WebXR Project 1",
+		// 	"WebXR Project 2",
+		// 	"WebXR Project 3",
+		// ];
+
+
+		// searchInput.addEventListener("input", (event) => {
+		// 	const searchText = event.target.value.toLowerCase();
+
+		// 	// Filter the dummy data based on the search text
+		// 	const filteredData = dummyData.filter(item => item.toLowerCase().includes(searchText));
+
+		// 	// Clear the existing search results
+		// 	searchResultsList.innerHTML = "";
+
+		// 	// Add the filtered data to the search results list
+		// 	filteredData.forEach(item => {
+		// 		const listItem = document.createElement("li");
+		// 		listItem.textContent = item;
+		// 		searchResultsList.appendChild(listItem);
+		// 	});
+
+		// 	// Show or hide the search results container based on the filtered data length
+		// 	searchResultsContainer.style.display = filteredData.length > 0 ? "block" : "none";
+		// });
+
+		// // Hide the search results container when clicking outside of it
+		// document.addEventListener("click", (event) => {
+		// 	if (!searchContainer.contains(event.target) && event.target !== searchIcon) {
+		// 		searchInput.style.display = "none";
+		// 		searchResultsContainer.style.display = "none";
+		// 		searchResultsContainer.nodeValue = "";
+		// 	}
+		// });
+
+
+		document.addEventListener("DOMContentLoaded", function () {
+			const themeToggle = document.getElementById("themeToggle");
+			const navbar = document.querySelector(".navbar");
+			const body = document.querySelector("body");
+			const footer = document.querySelector("footer");
+			const themeIcon = document.getElementById("themeIcon");
+
+			let darkMode = false;
+
+			themeToggle.addEventListener("change", () => {
+				darkMode = !darkMode;
+				if (darkMode) {
+					body.classList.remove("light-mode");
+					body.classList.add("dark-mode");
+					navbar.style.backgroundColor = "#2f2344";
+					body.style.backgroundColor = "#140022";
+					footer.style.backgroundColor = "#2f2344";
+					themeIcon.textContent = "nights_stay";
+				} else {
+					body.classList.remove("dark-mode");
+					body.classList.add("light-mode");
+					navbar.style.backgroundColor = "rgba(0, 0, 0, 0.75)";
+					body.style.backgroundColor = "#ffffff";
+					footer.style.backgroundColor = "rgba(0, 0, 0, 0.75)";
+					themeIcon.textContent = "wb_sunny";
+				}
+			});
+			document.getElementById("themeToggle").click();
+		});
+
+
+
+	</script>
+	<style>
+		.social-icon {
+			width: 40px;
+			height: 40px;
+			background-color: #fff;
+			display: inline-flex;
+			justify-content: center;
+			align-items: center;
+			border-radius: 50%;
+			text-decoration: none;
+		}
+
+		.social-icon:hover {
+			text-decoration: none;
+		}
+	</style>
+
+	<footer>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6">
+					<h3 style="color: white; font-family: 'nasalization';">Psyche / Journey to Metal World</h3>
+				</div>
+				<div class="col-md-6 text-md-end">
+					<!-- Facebook -->
+					<a href="https://www.facebook.com/MissionToPsyche" class="social-icon ms-2">
+						<svg class="ms-2 mt-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22" width="30"
+							height="30">
+							<path fill="#302144"
+								d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
+						</svg>
+					</a>
+					<!-- Instagram -->
+					<a href="https://www.instagram.com/missiontopsyche/" class="social-icon ms-2">
+						<svg class="ms-2 mt-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22" width="30"
+							height="30">
+							<path fill="#302144"
+								d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z" />
+						</svg>
+					</a>
+					<!-- Twitter -->
+					<a href="https://www.facebook.com/MissionToPsyche" class="social-icon ms-2">
+						<svg class="ms-2 mt-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22" width="30"
+							height="30">
+							<path fill="#302144"
+								d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" />
+						</svg>
+					</a>
+					<!-- YouTube -->
+					<a href="https://www.youtube.com/channel/UC2BGcbPW8mxryXnjQcBqk6A/" class="social-icon ms-2">
+						<svg class="ms-2 mt-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22" width="30"
+							height="30">
+							<path fill="#302144"
+								d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z" />
+						</svg>
+					</a>
+				</div>
+			</div>
+	</footer>
+
+</body>
+
+</html>
