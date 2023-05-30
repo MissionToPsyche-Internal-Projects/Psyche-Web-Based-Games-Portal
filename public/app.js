@@ -151,21 +151,24 @@ for (let index = 0; index < games.length; index++) {
 	btnGroup.className = "btn-group";
 	btnGroup.setAttribute("role", "group");
 
-	let bugBtn = document.createElement("button");
-	bugBtn.setAttribute("type", "button");
-	bugBtn.setAttribute("data-bs-toggle", "modal");
-	bugBtn.setAttribute("data-bs-target", "#bugReportModal");
-	bugBtn.setAttribute("title", "Report a bug");
-	bugBtn.classList.add("btn","btn-sm", "btn-danger", "rounded", "ms-5", "hidden");
-	bugBtn.onclick = handleBugBtn.bind(this, games[index].id);
+	// Add a "Report a Bug" button into the each game chicklet.
 
-	let bugText = document.createElement("span");
-	bugText.classList.add("bug-text");
-	bugText.innerHTML = "Report a Bug";
+	// let bugBtn = document.createElement("button");
+	// bugBtn.setAttribute("type", "button");
+	// bugBtn.setAttribute("data-bs-toggle", "modal");
+	// bugBtn.setAttribute("data-bs-target", "#bugReportModal");
+	// bugBtn.setAttribute("title", "Report a bug");
+	// bugBtn.classList.add("btn","btn-sm", "btn-danger", "rounded", "ms-5", "hidden");
+	// bugBtn.onclick = handleBugBtn.bind(this, games[index].id);
 
-	bugBtn.appendChild(bugText);
+	// let bugText = document.createElement("span");
+	// bugText.classList.add("bug-text");
+	// bugText.innerHTML = "Report a Bug";
+
+	// bugBtn.appendChild(bugText);
 
 
+	// Add a "Play" button into the each game chicklet.
 	let playLink = document.createElement("div");
 	playLink.className = "play-link";
 	playLink.style.cursor = "pointer";
@@ -187,7 +190,7 @@ for (let index = 0; index < games.length; index++) {
 	playDivider.style.marginTop = "-15px";
 	playDivider.style.width = "50px";
 	playDivider.style.height = "2px";
-	playDivider.style.background = "linear-gradient(to right, #140022, #FF5F6D, #FFC371)";
+	playDivider.style.background = "linear-gradient(to right, #302144, #592651 20%, #A53F5B 40%, #EF5966 60%, #F47C33 80%, #F9A000)";
 
 	playLink.appendChild(playText);
 	playLink.appendChild(playDivider);
@@ -195,7 +198,7 @@ for (let index = 0; index < games.length; index++) {
 
 
 	btnGroup.appendChild(playLink);
-	btnGroup.appendChild(bugBtn);
+	// btnGroup.appendChild(bugBtn);
 
 	cardContent.appendChild(cardTitle);
 	cardContent.appendChild(btnGroup);

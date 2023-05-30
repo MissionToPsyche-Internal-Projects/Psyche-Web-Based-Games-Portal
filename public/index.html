@@ -193,23 +193,61 @@
 				background-color: #2f2344;
 			}
 
-			.light-mode .video-container {
+			.light-mode video {
 				box-shadow: 0px 0px 20px -8px black;
+				/* color: black; */
 			}
 
-			.dark-mode .video-container {
+			.dark-mode video {
 				box-shadow: 0px 0px 20px -8px white;
+				/* color: white; */
 			}
+
+			/* .link {
+				position: relative;
+				display: inline-block;
+				padding: 0 40px 15px 0;
+				font-family: $font-family-mono; 
+				font-size: 1rem;
+				letter-spacing: 1px;
+				color: purple;
+				text-decoration: none;
+				overflow: hidden;
+
+				&:hover {
+					text-decoration: none;
+
+					&::after {
+						transform: scaleY(2) translateX(50%);
+					}
+				}
+
+				&::after {
+					content: " ";
+					position: absolute;
+					right: 0;
+					bottom: 0;
+					width: calc(200% + 4px);
+					height: 2px;
+					@include gradient-full; 
+					background-image: linear-gradient(linear, left top, right top, from(#302144), color-stop(20%, #592651), color-stop(40%, #A53F5B), color-stop(60%, #EF5966), color-stop(80%, #F47C33), to(#F9A000));
+					background-size: calc(50% + 2px) 100%;
+					transform: scaleY(1) translateX(0);
+					transform-origin: 50% 100%;
+					transition: transform 0.35s $snappy;
+				} 
+			} */
+			
 		</style>
 		<div class="container mt-4">
 			<div class="row ms-2">
 				<div class="col-md-8">
-					<div class="video-container" style="overflow: hidden; border-radius: 30px;">
-						<video width="100%" autoplay muted>
+					<!-- <div class="video-container" style="overflow: hidden; border-radius: 30px;"> -->
+						<video style="border-radius: 30px;" width="100%" autoplay muted>
 							<source src="./data/media/jolts.mp4" type="video/mp4">
 							Your browser does not support the video tag.
 						</video>
-					</div>
+					<!-- </div> -->
 					<h3 class="mt-4 game-name">Jolts Journey</h3>
 					<p class="game-description">Game description goes here. This is a brief description of the game that
 						provides more
