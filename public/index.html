@@ -203,39 +203,30 @@
 				/* color: white; */
 			}
 
-			/* .link {
-				position: relative;
-				display: inline-block;
-				padding: 0 40px 15px 0;
-				font-family: $font-family-mono; 
+			.play-link{
+				font-family: "RobotoMono",sans-serif;
 				font-size: 1rem;
 				letter-spacing: 1px;
-				color: purple;
-				text-decoration: none;
-				overflow: hidden;
+			}
 
-				&:hover {
-					text-decoration: none;
-
-					&::after {
-						transform: scaleY(2) translateX(50%);
-					}
-				}
-
-				&::after {
+			/* .play-link ::after{
 					content: " ";
 					position: absolute;
-					right: 0;
-					bottom: 0;
-					width: calc(200% + 4px);
+					right: -6px;
+					bottom: 10px;
+					width: calc(100% + 10px);
 					height: 2px;
-					@include gradient-full; 
-					background-image: linear-gradient(linear, left top, right top, from(#302144), color-stop(20%, #592651), color-stop(40%, #A53F5B), color-stop(60%, #EF5966), color-stop(80%, #F47C33), to(#F9A000));
 					background-size: calc(50% + 2px) 100%;
-					transform: scaleY(1) translateX(0);
+					background-size: 100% 100%;
+					background-image: linear-gradient(to right, #302144, #592651 20%, #A53F5B 40%, #EF5966 60%, #F47C33 80%, #F9A000);
+    				background-repeat: repeat-x;
 					transform-origin: 50% 100%;
-					transition: transform 0.35s $snappy;
-				} 
+					transform: scaleX(0);
+					transition: transform .35s cubic-bezier(0.42, 0, 0.05, 0.99);
+			}
+
+			.play-link:hover .divider1{
+				transform:scaleX(-1);
 			} */
 			
 		</style>
@@ -869,16 +860,20 @@
 		.social-icon {
 			width: 40px;
 			height: 40px;
+			margin: 5px;
 			background-color: #fff;
 			display: inline-flex;
 			justify-content: center;
 			align-items: center;
 			border-radius: 50%;
 			text-decoration: none;
+			transform: scale(1);
+			transition: transform 0.35s cubic-bezier(0.29, 0.97, 0, 1.85), -webkit-transform .35s cubic-bezier(0.29, 0.97, 0, 1.85), -o-transform .35s cubic-bezier(0.29, 0.97, 0, 1.85);
 		}
 
 		.social-icon:hover {
 			text-decoration: none;
+			transform: scale(1.1);
 		}
 	</style>
 
@@ -890,7 +885,7 @@
 				</div>
 				<div class="col-md-6 text-md-end">
 					<!-- Facebook -->
-					<a href="https://www.facebook.com/MissionToPsyche" class="social-icon ms-2">
+					<a href="https://www.facebook.com/MissionToPsyche" target="_blank" class="social-icon ms-2">
 						<svg class="ms-2 mt-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22" width="30"
 							height="30">
 							<path fill="#302144"
@@ -898,7 +893,7 @@
 						</svg>
 					</a>
 					<!-- Instagram -->
-					<a href="https://www.instagram.com/missiontopsyche/" class="social-icon ms-2">
+					<a href="https://www.instagram.com/missiontopsyche/" target="_blank" class="social-icon ms-2">
 						<svg class="ms-2 mt-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22" width="30"
 							height="30">
 							<path fill="#302144"
@@ -906,7 +901,7 @@
 						</svg>
 					</a>
 					<!-- Twitter -->
-					<a href="https://www.facebook.com/MissionToPsyche" class="social-icon ms-2">
+					<a href="https://twitter.com/MissionToPsyche" target="_blank" class="social-icon ms-2">
 						<svg class="ms-2 mt-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22" width="30"
 							height="30">
 							<path fill="#302144"
@@ -914,7 +909,7 @@
 						</svg>
 					</a>
 					<!-- YouTube -->
-					<a href="https://www.youtube.com/channel/UC2BGcbPW8mxryXnjQcBqk6A/" class="social-icon ms-2">
+					<a href="https://www.youtube.com/channel/UC2BGcbPW8mxryXnjQcBqk6A/" target="_blank" class="social-icon ms-2">
 						<svg class="ms-2 mt-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22" width="30"
 							height="30">
 							<path fill="#302144"

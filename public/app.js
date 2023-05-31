@@ -186,14 +186,24 @@ for (let index = 0; index < games.length; index++) {
 	playText.style.marginTop = "7px";
 	playText.innerHTML = "Play";
 
-	let playDivider = document.createElement("div");
-	playDivider.style.marginTop = "-15px";
-	playDivider.style.width = "50px";
-	playDivider.style.height = "2px";
-	playDivider.style.background = "linear-gradient(to right, #302144, #592651 20%, #A53F5B 40%, #EF5966 60%, #F47C33 80%, #F9A000)";
+	let playDivider1 = document.createElement("div");
+	playDivider1.className = "divider1"
+	playDivider1.style.marginTop = "-15px";
+	playDivider1.style.width = "0px";
+	playDivider1.style.height = "2px";
+	playDivider1.style.float = "left";
+	playDivider1.style.background = "linear-gradient(to right, #302144, #592651 20%, #A53F5B 40%, #EF5966 60%, #F47C33 80%, #F9A000)";
+
+	let playDivider2 = document.createElement("div");
+	playDivider2.className = "divider2"
+	playDivider2.style.marginTop = "-15px";
+	playDivider2.style.width = "40px";
+	playDivider2.style.height = "2px";
+	playDivider2.style.background = "linear-gradient(to right, #302144, #592651 20%, #A53F5B 40%, #EF5966 60%, #F47C33 80%, #F9A000)";
 
 	playLink.appendChild(playText);
-	playLink.appendChild(playDivider);
+	playLink.appendChild(playDivider1);
+	playLink.appendChild(playDivider2);
 
 
 
