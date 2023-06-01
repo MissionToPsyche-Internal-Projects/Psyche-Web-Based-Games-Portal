@@ -114,7 +114,6 @@ const games = [
 // Creates the cards for all projects with two buttons
 for (let index = 0; index < games.length; index++) {
 	let card = document.createElement("div");
-	card.style.boxShadow = "0 5px 15px rgba(0,0,0,0.4)";
 	card.className = "card";
 	card.setAttribute("game-class", games[index].class);
 	card.setAttribute("game-genre", games[index].genre);
