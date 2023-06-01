@@ -20,12 +20,6 @@
 	<link rel="icon" type="image/png" href="images/Logo.png" />
 
 	<style>
-		@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap");
-		/* @import url('https://fonts.googleapis.com/css2?family=Play&display=swap'); */
-		@import url('https://fonts.googleapis.com/css2?family=Play:wght@700&display=swap');
-		@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
-		@import url('https://fonts.googleapis.com/css2?family=Expletus+Sans:wght@500&display=swap');
-		@import url('https://fonts.googleapis.com/css2?family=Exo:wght@500&display=swap');
 		@font-face {
             font-family: "nasalization";
             src: url("./fonts/nasalizationrg.otf") format("truetype");
@@ -124,10 +118,6 @@
 			<button type="button" id="passwordSubmitBtn" class="btn btn-primary mt-2">Submit</button>
 		</div> -->
 		<style>
-			.play-link p {
-				color: white;
-			}
-
 			.bug-text {
 				font-size: 12px;
 			}
@@ -195,39 +185,48 @@
 
 			.light-mode video {
 				box-shadow: 0px 0px 20px -8px black;
-				/* color: black; */
 			}
 
 			.dark-mode video {
 				box-shadow: 0px 0px 20px -8px white;
-				/* color: white; */
 			}
 
-			.play-link{
-				font-family: "RobotoMono",sans-serif;
-				font-size: 1rem;
-				letter-spacing: 1px;
+			/* .light-mode .card {
+				box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 			}
 
-			/* .play-link ::after{
-					content: " ";
-					position: absolute;
-					right: -6px;
-					bottom: 10px;
-					width: calc(100% + 10px);
-					height: 2px;
-					background-size: calc(50% + 2px) 100%;
-					background-size: 100% 100%;
-					background-image: linear-gradient(to right, #302144, #592651 20%, #A53F5B 40%, #EF5966 60%, #F47C33 80%, #F9A000);
-    				background-repeat: repeat-x;
-					transform-origin: 50% 100%;
-					transform: scaleX(0);
-					transition: transform .35s cubic-bezier(0.42, 0, 0.05, 0.99);
-			}
-
-			.play-link:hover .divider1{
-				transform:scaleX(-1);
+			.dark-mode .card {
+				box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
 			} */
+
+			@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200&display=swap');
+			.play-link > p {
+				color: #908a9c;
+				font-family: 'Roboto Mono', monospace;
+				font-size: 15px;
+				letter-spacing: 1px;
+				transition: font-size .35s cubic-bezier(0.42, 0, 0.05, 0.99), color .35s cubic-bezier(0.42, 0, 0.05, 0.99);
+			}
+			
+			.divider1 {
+				transform-origin: left;
+				transform: scaleX(0);
+				transition: transform .35s cubic-bezier(0.42, 0, 0.05, 0.99);
+			}
+
+			.play-link:hover > p{
+				/* font-size: 17px; */
+				color: white;
+			}
+			
+			.play-link:hover .divider1{
+				transform: scaleX(1);
+			}
+
+			.play-link:not(:hover) .divider1{
+				transform-origin: right;
+				transform: scaleX(0);
+			}
 			
 		</style>
 		<div class="container mt-4">
@@ -343,7 +342,7 @@
 			}
 
 			.light-mode .form-check-input:checked {
-				border-color: #000;
+				border-color: #0d6efd;
 			}
 
 			/* Checkbox styles for Dark mode */
@@ -354,7 +353,7 @@
 
 			.dark-mode .form-check-input:checked {
 				border-color: transparent;
-				background-color: #000;
+				background-color: #0d6efd;
 				/* border-image: linear-gradient(to bottom right, #FFA500, #FF4500);
 				border-image-slice: 1; */
 			}
@@ -377,11 +376,11 @@
 		<div class="container mt-5">
 			<div class="row">
 				<div class="col-md-3">
-					<div class="card no-border">
-						<div class="card-header">
-							<h5 class="card-title mb-0">Filters</h5>
+					<div class="filters no-border">
+						<div class="filters-header">
+							<h5 class="filters-title mb-0">Filters</h5>
 						</div>
-						<div class="card-body no-border">
+						<div class="filters-body no-border">
 							<div class="accordion" id="filterAccordion">
 								<!-- Class Filter -->
 								<div class="accordion-item">
@@ -535,22 +534,22 @@
 				</div>
 
 				<style>
-					.card {
+					.filters {
 						border-radius: 0px;
 					}
 
-					.light-mode .card.no-border .card-header,
-					.light-mode .card.no-border .accordion-button,
-					.light-mode .card.no-border .accordion-body {
+					.light-mode .filters.no-border .filters-header,
+					.light-mode .filters.no-border .accordion-button,
+					.light-mode .filters.no-border .accordion-body {
 						background-color: #fff;
 						color: #000;
 					}
 
 					/* Dark Mode */
-					.dark-mode .card.no-border,
-					.dark-mode .card.no-border .card-header,
-					.dark-mode .card.no-border .accordion-button,
-					.dark-mode .card.no-border .accordion-body {
+					.dark-mode .filters.no-border,
+					.dark-mode .filters.no-border .filters-header,
+					.dark-mode .filters.no-border .accordion-button,
+					.dark-mode .filters.no-border .accordion-body {
 						background-color: #130022;
 						color: #fff;
 					}
@@ -569,6 +568,16 @@
 					.dark-mode .sort-text {
 						color: #fff;
 					}
+
+					@font-face {
+						font-family: "floridaSerialRegular";
+						src: url("./fonts/Florida-Serial Regular.ttf") format("truetype");
+					}
+
+					.card-title {
+						font-family: "floridaSerialRegular";
+					}
+					
 				</style>
 				<script>
 					let sortAscending = true;

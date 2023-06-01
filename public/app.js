@@ -114,7 +114,8 @@ const games = [
 // Creates the cards for all projects with two buttons
 for (let index = 0; index < games.length; index++) {
 	let card = document.createElement("div");
-
+	card.style.boxShadow = "0 5px 15px rgba(0,0,0,0.4)";
+	card.className = "card";
 	card.setAttribute("game-class", games[index].class);
 	card.setAttribute("game-genre", games[index].genre);
 	card.setAttribute("game-age", games[index].age);
@@ -135,6 +136,7 @@ for (let index = 0; index < games.length; index++) {
 	let cardTitle = document.createElement("h6");
 	cardTitle.innerHTML = games[index].id.split("-").join(" ").toUpperCase();
 	cardTitle.classList.add("card-title");
+	// cardTitle.style.color = "#908a9c";
 
 	let projectScreenshot = document.createElement("img");
 	projectScreenshot.classList.add("card-img-top");
@@ -182,28 +184,29 @@ for (let index = 0; index < games.length; index++) {
 		}
 	};
 	let playText = document.createElement("p");
-	playText.style.fontSize = "15px";
+	// playText.style.fontSize = "15px";
+	playText.style.letterSpacing = "1px";
 	playText.style.marginTop = "7px";
 	playText.innerHTML = "Play";
 
 	let playDivider1 = document.createElement("div");
 	playDivider1.className = "divider1"
 	playDivider1.style.marginTop = "-15px";
-	playDivider1.style.width = "0px";
+	playDivider1.style.width = "100%";
 	playDivider1.style.height = "2px";
 	playDivider1.style.float = "left";
-	playDivider1.style.background = "linear-gradient(to right, #302144, #592651 20%, #A53F5B 40%, #EF5966 60%, #F47C33 80%, #F9A000)";
+	playDivider1.style.background = "linear-gradient(to right, rgb(29, 13, 68), rgb(89, 38, 81) 30%, rgb(165, 63, 91) 50%, rgb(239, 89, 102) 70%, rgb(244, 124, 51) 90%, rgb(249, 160, 0))";
 
-	let playDivider2 = document.createElement("div");
-	playDivider2.className = "divider2"
-	playDivider2.style.marginTop = "-15px";
-	playDivider2.style.width = "40px";
-	playDivider2.style.height = "2px";
-	playDivider2.style.background = "linear-gradient(to right, #302144, #592651 20%, #A53F5B 40%, #EF5966 60%, #F47C33 80%, #F9A000)";
+	// let playDivider2 = document.createElement("div");
+	// playDivider2.className = "divider2"
+	// playDivider2.style.marginTop = "-15px";
+	// playDivider2.style.width = "100%";
+	// playDivider2.style.height = "2px";
+	// playDivider2.style.background = "linear-gradient(to right, rgb(29, 13, 68), rgb(89, 38, 81) 30%, rgb(165, 63, 91) 50%, rgb(239, 89, 102) 70%, rgb(244, 124, 51) 90%, rgb(249, 160, 0))";
 
 	playLink.appendChild(playText);
 	playLink.appendChild(playDivider1);
-	playLink.appendChild(playDivider2);
+	// playLink.appendChild(playDivider2);
 
 
 
