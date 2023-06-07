@@ -80,9 +80,9 @@
                 } else {
                     body.classList.remove("dark-mode");
                     body.classList.add("light-mode");
-                    navbar.style.backgroundColor = "rgba(0, 0, 0, 0.75)";
+                    navbar.style.backgroundColor = "#41464b";
                     body.style.backgroundColor = "#ffffff";
-                    footer.style.backgroundColor = "rgba(0, 0, 0, 0.75)";
+                    footer.style.backgroundColor = "#41464b";
                     themeIcon.textContent = "wb_sunny";
                 }
             });
@@ -103,7 +103,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <div class="ms-auto d-flex align-items-center">
-                    <div class="search-container me-3" style="position: relative;">
+                    <!-- <div class="search-container me-3" style="position: relative;">
                         <input id="searchInput" type="text" placeholder="Search Games"
                             style="display: none; background: transparent; border: none; color: white;">
                         <div id="searchResultsContainer" class="bg-light"
@@ -111,7 +111,7 @@
                             <ul id="searchResultsList" class="list-unstyled m-2"></ul>
                         </div>
                     </div>
-                    <span id="searchIcon" class="material-icons text-white me-3" style="cursor: pointer;">search</span>
+                    <span id="searchIcon" class="material-icons text-white me-3" style="cursor: pointer;">search</span> -->
                     <div class="form-check form-switch ms-2 me-3">
                         <input class="form-check-input" type="checkbox" id="themeToggle">
                         <label class="form-check-label" for="themeToggle"></label>
@@ -122,77 +122,77 @@
         </div>
     </nav>
     <script>
-        const searchIcon = document.getElementById("searchIcon");
-        const searchInput = document.getElementById("searchInput");
-        const searchContainer = document.querySelector(".search-container");
-        const searchResultsContainer = document.getElementById("searchResultsContainer");
-        const searchResultsList = document.getElementById("searchResultsList");
+        // const searchIcon = document.getElementById("searchIcon");
+        // const searchInput = document.getElementById("searchInput");
+        // const searchContainer = document.querySelector(".search-container");
+        // const searchResultsContainer = document.getElementById("searchResultsContainer");
+        // const searchResultsList = document.getElementById("searchResultsList");
 
-        searchIcon.addEventListener("click", () => {
-            if (searchInput.style.display === "none") {
-                searchInput.style.display = "inline";
-                searchInput.focus();
-            } else {
-                searchInput.style.display = "none";
-                searchInput.value = "";
-                searchResultsContainer.style.display = "none";
-                searchResultsContainer.nodeValue = "";
-            }
-        });
+        // searchIcon.addEventListener("click", () => {
+        //     if (searchInput.style.display === "none") {
+        //         searchInput.style.display = "inline";
+        //         searchInput.focus();
+        //     } else {
+        //         searchInput.style.display = "none";
+        //         searchInput.value = "";
+        //         searchResultsContainer.style.display = "none";
+        //         searchResultsContainer.nodeValue = "";
+        //     }
+        // });
 
-        // Using a timeout to prevent immediate blurring after clicking the search icon
-        searchInput.addEventListener("blur", () => {
-            setTimeout(() => {
-                searchInput.style.display = "none";
-            }, 100);
-        });
+        // // Using a timeout to prevent immediate blurring after clicking the search icon
+        // searchInput.addEventListener("blur", () => {
+        //     setTimeout(() => {
+        //         searchInput.style.display = "none";
+        //     }, 100);
+        // });
 
-        // Clicking anywhere outside the search container will hide the search input field
-        document.addEventListener("click", (event) => {
-            if (!searchContainer.contains(event.target) && event.target !== searchIcon) {
-                searchInput.style.display = "none";
-                searchInput.value = "";
-            }
-        });
+        // // Clicking anywhere outside the search container will hide the search input field
+        // document.addEventListener("click", (event) => {
+        //     if (!searchContainer.contains(event.target) && event.target !== searchIcon) {
+        //         searchInput.style.display = "none";
+        //         searchInput.value = "";
+        //     }
+        // });
 
-        const dummyData = [
-            "Game 1",
-            "Game 2",
-            "Game 3",
-            "WebXR Project 1",
-            "WebXR Project 2",
-            "WebXR Project 3",
-        ];
+        // const dummyData = [
+        //     "Game 1",
+        //     "Game 2",
+        //     "Game 3",
+        //     "WebXR Project 1",
+        //     "WebXR Project 2",
+        //     "WebXR Project 3",
+        // ];
 
 
-        searchInput.addEventListener("input", (event) => {
-            const searchText = event.target.value.toLowerCase();
+        // searchInput.addEventListener("input", (event) => {
+        //     const searchText = event.target.value.toLowerCase();
 
-            // Filter the dummy data based on the search text
-            const filteredData = dummyData.filter(item => item.toLowerCase().includes(searchText));
+        //     // Filter the dummy data based on the search text
+        //     const filteredData = dummyData.filter(item => item.toLowerCase().includes(searchText));
 
-            // Clear the existing search results
-            searchResultsList.innerHTML = "";
+        //     // Clear the existing search results
+        //     searchResultsList.innerHTML = "";
 
-            // Add the filtered data to the search results list
-            filteredData.forEach(item => {
-                const listItem = document.createElement("li");
-                listItem.textContent = item;
-                searchResultsList.appendChild(listItem);
-            });
+        //     // Add the filtered data to the search results list
+        //     filteredData.forEach(item => {
+        //         const listItem = document.createElement("li");
+        //         listItem.textContent = item;
+        //         searchResultsList.appendChild(listItem);
+        //     });
 
-            // Show or hide the search results container based on the filtered data length
-            searchResultsContainer.style.display = filteredData.length > 0 ? "block" : "none";
-        });
+        //     // Show or hide the search results container based on the filtered data length
+        //     searchResultsContainer.style.display = filteredData.length > 0 ? "block" : "none";
+        // });
 
-        // Hide the search results container when clicking outside of it
-        document.addEventListener("click", (event) => {
-            if (!searchContainer.contains(event.target) && event.target !== searchIcon) {
-                searchInput.style.display = "none";
-                searchResultsContainer.style.display = "none";
-                searchResultsContainer.nodeValue = "";
-            }
-        });
+        // // Hide the search results container when clicking outside of it
+        // document.addEventListener("click", (event) => {
+        //     if (!searchContainer.contains(event.target) && event.target !== searchIcon) {
+        //         searchInput.style.display = "none";
+        //         searchResultsContainer.style.display = "none";
+        //         searchResultsContainer.nodeValue = "";
+        //     }
+        // });
     </script>
     <!-- Game sections -->
     <div class="container mt-4">
