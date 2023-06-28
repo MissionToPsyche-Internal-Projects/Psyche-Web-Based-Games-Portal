@@ -118,112 +118,27 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg">
         <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="#">
-                <img class="me-3" src="https://www.nasa.gov/sites/default/files/thumbnails/image/nasa-logo-web-rgb.png"
-                    alt="NASA Logo" width="70">
-                <img src="../images/Logo.png" alt="Psyche Logo" width="30" class="me-3">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+            <a class="navbar-brand me-0 d-flex align-items-center" href="https://psyche.asu.edu/" target="_blank">
+				<img class="me-3" src="../images/Logo.png" alt="Psyche Logo" width="43">
+			</a>
+			<div class="divider bg-white" style="width:1px; height:35px;"></div>
+			<a class="navbar-brand d-flex align-items-center" href="">
+				<img class="ms-3" src="../images/gamepad2.png" alt="Gaming Icon" width="40" class="me-3">
+			</a>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <div class="ms-auto d-flex align-items-center">
-                    <!-- <div class="search-container me-3" style="position: relative;">
-                        <input id="searchInput" type="text" placeholder="Search Games"
-                            style="display: none; background: transparent; border: none; color: white;">
-                        <div id="searchResultsContainer" class="bg-light"
-                            style="position: absolute; top: 100%; left: 0; width: 100%; display: none;">
-                            <ul id="searchResultsList" class="list-unstyled m-2"></ul>
-                        </div>
-                    </div>
-                    <span id="searchIcon" class="material-icons text-white me-3" style="cursor: pointer;">search</span> -->
+                    <span id="themeIcon" class="material-icons text-white me-2" >wb_sunny</span>
                     <div class="form-check form-switch ms-2 me-3">
-                        <input class="form-check-input" type="checkbox" id="themeToggle">
+                        <input class="form-check-input" type="checkbox" id="themeToggle"  style="cursor: pointer;">
                         <label class="form-check-label" for="themeToggle"></label>
                     </div>
-                    <span id="themeIcon" class="material-icons text-white me-2" style="cursor: pointer;">wb_sunny</span>
                 </div>
             </div>
         </div>
     </nav>
-    <!-- <script>
-        // const searchIcon = document.getElementById("searchIcon");
-        // const searchInput = document.getElementById("searchInput");
-        // const searchContainer = document.querySelector(".search-container");
-        // const searchResultsContainer = document.getElementById("searchResultsContainer");
-        // const searchResultsList = document.getElementById("searchResultsList");
-
-        // searchIcon.addEventListener("click", () => {
-        //     if (searchInput.style.display === "none") {
-        //         searchInput.style.display = "inline";
-        //         searchInput.focus();
-        //     } else {
-        //         searchInput.style.display = "none";
-        //         searchInput.value = "";
-        //         searchResultsContainer.style.display = "none";
-        //         searchResultsContainer.nodeValue = "";
-        //     }
-        // });
-
-        // // Using a timeout to prevent immediate blurring after clicking the search icon
-        // searchInput.addEventListener("blur", () => {
-        //     setTimeout(() => {
-        //         searchInput.style.display = "none";
-        //     }, 100);
-        // });
-
-        // // Clicking anywhere outside the search container will hide the search input field
-        // document.addEventListener("click", (event) => {
-        //     if (!searchContainer.contains(event.target) && event.target !== searchIcon) {
-        //         searchInput.style.display = "none";
-        //         searchInput.value = "";
-        //     }
-        // });
-
-        // const dummyData = [
-        //     "Game 1",
-        //     "Game 2",
-        //     "Game 3",
-        //     "WebXR Project 1",
-        //     "WebXR Project 2",
-        //     "WebXR Project 3",
-        // ];
-
-
-        // searchInput.addEventListener("input", (event) => {
-        //     const searchText = event.target.value.toLowerCase();
-
-        //     // Filter the dummy data based on the search text
-        //     const filteredData = dummyData.filter(item => item.toLowerCase().includes(searchText));
-
-        //     // Clear the existing search results
-        //     searchResultsList.innerHTML = "";
-
-        //     // Add the filtered data to the search results list
-        //     filteredData.forEach(item => {
-        //         const listItem = document.createElement("li");
-        //         listItem.textContent = item;
-        //         searchResultsList.appendChild(listItem);
-        //     });
-
-        //     // Show or hide the search results container based on the filtered data length
-        //     searchResultsContainer.style.display = filteredData.length > 0 ? "block" : "none";
-        // });
-
-        // // Hide the search results container when clicking outside of it
-        // document.addEventListener("click", (event) => {
-        //     if (!searchContainer.contains(event.target) && event.target !== searchIcon) {
-        //         searchInput.style.display = "none";
-        //         searchResultsContainer.style.display = "none";
-        //         searchResultsContainer.nodeValue = "";
-        //     }
-        // });
-    </script> -->
     <!-- Game sections -->
     <div class="container mt-4">
         <div class="row">
-            <!-- Game display section -->
             <!-- Game display section -->
             <div class="col-md-8 position-relative">
                 <iframe src="../game_files/dummy-game/" id="game-iframe" width="100%" height="400px"></iframe>
@@ -236,57 +151,6 @@
                 <h2 id="game-title" class="mt-3"></h2>
                 <p id="game-description">Game description goes here...</p>
             </div>
-            <script>
-                const gameIframe = document.getElementById("game-iframe");
-                const fullscreenButton = document.getElementById("fullscreen-button");
-                let isFullscreen = false;
-
-                function toggleFullscreen(elem) {
-                    if (!isFullscreen) {
-                        if (elem.requestFullscreen) {
-                            elem.requestFullscreen();
-                        } else if (elem.mozRequestFullScreen) {
-                            elem.mozRequestFullScreen();
-                        } else if (elem.webkitRequestFullscreen) {
-                            elem.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
-                        } else if (elem.msRequestFullscreen) {
-                            elem.msRequestFullscreen();
-                        }
-                    } else {
-                        if (document.exitFullscreen) {
-                            document.exitFullscreen();
-                        } else if (document.mozCancelFullScreen) {
-                            document.mozCancelFullScreen();
-                        } else if (document.webkitExitFullscreen) {
-                            document.webkitExitFullscreen();
-                        } else if (document.msExitFullscreen) {
-                            document.msExitFullscreen();
-                        }
-                    }
-                }
-
-                function adjustIframeDimensions() {
-                    if (isFullscreen) {
-                        gameIframe.style.width = '100%';
-                        gameIframe.style.height = '100%';
-                    } else {
-                        gameIframe.style.width = '100%';
-                        gameIframe.style.height = '400px';
-                    }
-                }
-
-                function fullscreenChangeHandler() {
-                    isFullscreen = !isFullscreen;
-                    adjustIframeDimensions();
-                }
-
-                fullscreenButton.addEventListener("click", () => toggleFullscreen(gameIframe));
-                document.addEventListener('fullscreenchange', fullscreenChangeHandler);
-                document.addEventListener('webkitfullscreenchange', fullscreenChangeHandler);
-                document.addEventListener('mozfullscreenchange', fullscreenChangeHandler);
-                document.addEventListener('MSFullscreenChange', fullscreenChangeHandler);
-            </script>
-
 
             <!-- Game info section -->
             <div class="col-md-4">
@@ -733,6 +597,56 @@
             $(multipleCardCarousel).addClass("slide");
         }
     </script>
+    <script>
+        const gameIframe = document.getElementById("game-iframe");
+        const fullscreenButton = document.getElementById("fullscreen-button");
+        let isFullscreen = false;
+
+        function toggleFullscreen(elem) {
+            if (!isFullscreen) {
+                if (elem.requestFullscreen) {
+                    elem.requestFullscreen();
+                } else if (elem.mozRequestFullScreen) {
+                    elem.mozRequestFullScreen();
+                } else if (elem.webkitRequestFullscreen) {
+                    elem.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+                } else if (elem.msRequestFullscreen) {
+                    elem.msRequestFullscreen();
+                }
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.mozCancelFullScreen) {
+                    document.mozCancelFullScreen();
+                } else if (document.webkitExitFullscreen) {
+                    document.webkitExitFullscreen();
+                } else if (document.msExitFullscreen) {
+                    document.msExitFullscreen();
+                }
+            }
+        }
+
+        function adjustIframeDimensions() {
+            if (isFullscreen) {
+                gameIframe.style.width = '100%';
+                gameIframe.style.height = '100%';
+            } else {
+                gameIframe.style.width = '100%';
+                gameIframe.style.height = '400px';
+            }
+        }
+
+        function fullscreenChangeHandler() {
+            isFullscreen = !isFullscreen;
+            adjustIframeDimensions();
+        }
+
+        fullscreenButton.addEventListener("click", () => toggleFullscreen(gameIframe));
+        document.addEventListener('fullscreenchange', fullscreenChangeHandler);
+        document.addEventListener('webkitfullscreenchange', fullscreenChangeHandler);
+        document.addEventListener('mozfullscreenchange', fullscreenChangeHandler);
+        document.addEventListener('MSFullscreenChange', fullscreenChangeHandler);
+    </script>
     <script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-app.js"></script>
 
     <!-- TODO: Add SDKs for Firebase products that you want to use
@@ -742,3 +656,79 @@
 </body>
 
 </html>
+
+
+
+<!-- <script>
+        // const searchIcon = document.getElementById("searchIcon");
+        // const searchInput = document.getElementById("searchInput");
+        // const searchContainer = document.querySelector(".search-container");
+        // const searchResultsContainer = document.getElementById("searchResultsContainer");
+        // const searchResultsList = document.getElementById("searchResultsList");
+
+        // searchIcon.addEventListener("click", () => {
+        //     if (searchInput.style.display === "none") {
+        //         searchInput.style.display = "inline";
+        //         searchInput.focus();
+        //     } else {
+        //         searchInput.style.display = "none";
+        //         searchInput.value = "";
+        //         searchResultsContainer.style.display = "none";
+        //         searchResultsContainer.nodeValue = "";
+        //     }
+        // });
+
+        // // Using a timeout to prevent immediate blurring after clicking the search icon
+        // searchInput.addEventListener("blur", () => {
+        //     setTimeout(() => {
+        //         searchInput.style.display = "none";
+        //     }, 100);
+        // });
+
+        // // Clicking anywhere outside the search container will hide the search input field
+        // document.addEventListener("click", (event) => {
+        //     if (!searchContainer.contains(event.target) && event.target !== searchIcon) {
+        //         searchInput.style.display = "none";
+        //         searchInput.value = "";
+        //     }
+        // });
+
+        // const dummyData = [
+        //     "Game 1",
+        //     "Game 2",
+        //     "Game 3",
+        //     "WebXR Project 1",
+        //     "WebXR Project 2",
+        //     "WebXR Project 3",
+        // ];
+
+
+        // searchInput.addEventListener("input", (event) => {
+        //     const searchText = event.target.value.toLowerCase();
+
+        //     // Filter the dummy data based on the search text
+        //     const filteredData = dummyData.filter(item => item.toLowerCase().includes(searchText));
+
+        //     // Clear the existing search results
+        //     searchResultsList.innerHTML = "";
+
+        //     // Add the filtered data to the search results list
+        //     filteredData.forEach(item => {
+        //         const listItem = document.createElement("li");
+        //         listItem.textContent = item;
+        //         searchResultsList.appendChild(listItem);
+        //     });
+
+        //     // Show or hide the search results container based on the filtered data length
+        //     searchResultsContainer.style.display = filteredData.length > 0 ? "block" : "none";
+        // });
+
+        // // Hide the search results container when clicking outside of it
+        // document.addEventListener("click", (event) => {
+        //     if (!searchContainer.contains(event.target) && event.target !== searchIcon) {
+        //         searchInput.style.display = "none";
+        //         searchResultsContainer.style.display = "none";
+        //         searchResultsContainer.nodeValue = "";
+        //     }
+        // });
+    </script> -->
