@@ -173,14 +173,18 @@ for (let index = 0; index < games.length; index++) {
 	let playLink = document.createElement("div");
 	playLink.className = "play-link";
 	playLink.style.cursor = "pointer";
+	var game_window = "";
 	playLink.onclick = () => {
 		if (games[index].id == "journey-to-psyche") {
-			window.open(`/${games[index].id}/journey_to_psyche.html`)
+			game_window = window.open(`/${games[index].id}/journey_to_psyche.html`);
 		} else if (games[index] == "15I") {
-			window.open(`/${games[index].id}/src`)
+			game_window = window.open(`/${games[index].id}/src`);
 		} else {
-			window.open(`/public/game_page?gameId=${games[index].id}`)
+			game_window = window.open(`/public/game_page?gameId=${games[index].id}`)
 		}
+		game_window.addEventListener("load", function() {
+            game_window.document.title = games[index].title;
+        });
 	};
 	let playText = document.createElement("p");
 	// playText.style.fontSize = "15px";
@@ -221,51 +225,51 @@ for (let index = 0; index < games.length; index++) {
 }
 
 // Resets the form when opened and also handles the submit button
-function handleBugBtn(projectID) {
-	let currentDate = new Date().toISOString();
+// function handleBugBtn(projectID) {
+// 	let currentDate = new Date().toISOString();
 
-	document.getElementById('projectID').value = projectID;
-	document.getElementById('currentDate').value = currentDate.substr(0, 10);
-	document.getElementById('environmentInfo').value = navigator.userAgent;
+// 	document.getElementById('projectID').value = projectID;
+// 	document.getElementById('currentDate').value = currentDate.substr(0, 10);
+// 	document.getElementById('environmentInfo').value = navigator.userAgent;
 
-	// clear form
-	document.getElementById('bugSummaryTA').value = "";
-	document.getElementById('actionPerformedTA').value = "";
-	document.getElementById('expectedResultTA').value = "";
-	document.getElementById('actualResultTA').value = "";
-	document.getElementById('errorMessageTA').value = "";
+// 	// clear form
+// 	document.getElementById('bugSummaryTA').value = "";
+// 	document.getElementById('actionPerformedTA').value = "";
+// 	document.getElementById('expectedResultTA').value = "";
+// 	document.getElementById('actualResultTA').value = "";
+// 	document.getElementById('errorMessageTA').value = "";
 
-	// submit form
-	document.getElementById('submitBtn').addEventListener('click', () => {
-		// Add a new document with a generated id.
-		db.collection(projectID).add({
-			projectID: projectID,
-			date: currentDate,
-			reporterName: document.getElementById('reporterName').value,
-			environment: navigator.userAgent,
-			bugSummary: document.getElementById('bugSummaryTA').value,
-			actionPerformed: document.getElementById('actionPerformedTA').value,
-			expectedResult: document.getElementById('expectedResultTA').value,
-			actualResult: document.getElementById('actualResultTA').value,
-			errorMessage: document.getElementById('errorMessageTA').value
-		})
-			.then(() => {
-				var bugReportModal = document.getElementById('bugReportModal');
-				var modal = bootstrap.Modal.getInstance(bugReportModal); // Returns a Bootstrap modal instance
-				modal.toggle();
+// 	// submit form
+// 	document.getElementById('submitBtn').addEventListener('click', () => {
+// 		// Add a new document with a generated id.
+// 		db.collection(projectID).add({
+// 			projectID: projectID,
+// 			date: currentDate,
+// 			reporterName: document.getElementById('reporterName').value,
+// 			environment: navigator.userAgent,
+// 			bugSummary: document.getElementById('bugSummaryTA').value,
+// 			actionPerformed: document.getElementById('actionPerformedTA').value,
+// 			expectedResult: document.getElementById('expectedResultTA').value,
+// 			actualResult: document.getElementById('actualResultTA').value,
+// 			errorMessage: document.getElementById('errorMessageTA').value
+// 		})
+// 			.then(() => {
+// 				var bugReportModal = document.getElementById('bugReportModal');
+// 				var modal = bootstrap.Modal.getInstance(bugReportModal); // Returns a Bootstrap modal instance
+// 				modal.toggle();
 
-				var toastElList = [].slice.call(document.querySelectorAll('.toast'))
-				var toastList = toastElList.map(function (toastEl) {
-					return new bootstrap.Toast(toastEl, {})
-				});
+// 				var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+// 				var toastList = toastElList.map(function (toastEl) {
+// 					return new bootstrap.Toast(toastEl, {})
+// 				});
 
-				toastList[0].show();
-			})
-			.catch((error) => {
-				console.error("Error adding document: ", error);
-			})
-	})
-}
+// 				toastList[0].show();
+// 			})
+// 			.catch((error) => {
+// 				console.error("Error adding document: ", error);
+// 			})
+// 	})
+// }
 
 // Add event listeners to the filter checkboxes
 const filterCheckboxes = document.querySelectorAll('.form-check-input');
