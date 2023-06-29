@@ -1,0 +1,246 @@
+@font-face {
+    font-family: "nasalization";
+    src: url("./fonts/nasalizationrg.otf") format("truetype");
+}
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Rubik", sans-serif;
+}
+
+#header-title {
+    font-family: 'nasalization';
+}
+
+/* Footer styles */
+footer {
+    background-color: #302144;
+    color: white;
+    padding: 20px;
+}
+
+/* Search input styles */
+#searchInput {
+    display: none;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid white;
+    outline: none;
+    color: white;
+}
+
+.grayscale {
+    filter: grayscale(100%);
+}
+
+#header-title{
+    text-align: center;
+    color: white;
+    padding-left: 100px;
+}
+
+nav {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+/* ========================================================================================================================================================================================================================================================================== */
+.card:hover .hidden {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+.hidden {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+
+.card {
+    background-color: #2f2344 !important;
+    color: white;
+    border-radius: 15px !important;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    transition: box-shadow 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.card:hover {
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+}
+
+.light-mode .game-link.active {
+    color: black;
+}
+
+.dark-mode .game-link.active {
+    color: white;
+}
+
+.light-mode .game-link:not(.active) {
+    color: grey;
+}
+
+.dark-mode .game-link:not(.active) {
+    color: grey;
+}
+
+.light-mode .game-link:not(.active):hover {
+    color: black;
+}
+
+.dark-mode .game-link:not(.active):hover {
+    color: white;
+}
+
+.light-mode .game-name,
+.light-mode .game-description {
+    color: black;
+}
+
+.dark-mode .game-name,
+.dark-mode .game-description {
+    color: white;
+}
+
+.light-mode .divider {
+    background-color: black;
+}
+
+.dark-mode .divider {
+    background-color: #2f2344;
+}
+
+.light-mode video {
+    box-shadow:0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.dark-mode video {
+    box-shadow:0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+/* .light-mode .card {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.dark-mode .card {
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+} */
+
+/* ========================================================================================================================================================================================================================================================================== */
+.play-link > p {
+    color: #908a9c;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 15px;
+    letter-spacing: 1px;
+    transition: font-size .35s cubic-bezier(0.42, 0, 0.05, 0.99), color .35s cubic-bezier(0.42, 0, 0.05, 0.99);
+}
+
+.playDivider {
+    transform-origin: left;
+    transform: scaleX(0);
+    transition: transform .35s cubic-bezier(0.42, 0, 0.05, 0.99);
+}
+
+.play-link:hover > p{
+    /* font-size: 17px; */
+    color: white;
+}
+
+.play-link:hover .playDivider{
+    transform: scaleX(1);
+}
+
+.play-link:not(:hover) .playDivider{
+    transform-origin: right;
+    transform: scaleX(0);
+}
+
+/* ========================================================================================================================================================================================================================================================================== */
+.no-border {
+    border: none !important;
+    border-right: none !important;
+    border-top: none !important;
+}
+
+.accordion-item {
+    border-left: none !important;
+    border-right: none !important;
+    border-top: none !important;
+}
+
+.accordion-item .accordion-button {
+    border-left: none !important;
+    border-right: none !important;
+    border-top: none !important;
+}
+
+/* ========================================================================================================================================================================================================================================================================== */
+
+/* Checkbox styles for Light mode */
+.light-mode #themeToggle {
+    background-color: white;
+}
+
+.light-mode .form-check-input {
+    border: 1px solid #000;
+}
+
+.light-mode .form-check-input:checked {
+    border-color: #0d6efd;
+}
+
+/* Checkbox styles for Dark mode */
+.dark-mode .form-check-input {
+    background-color: transparent;
+    border: 1px solid #fff;
+}
+
+.dark-mode .form-check-input:checked {
+    border-color: transparent;
+    background-color: #0d6efd;
+    /* border-image: linear-gradient(to bottom right, #FFA500, #FF4500);
+    border-image-slice: 1; */
+}
+
+/* Accordion toggle arrow colors */
+
+/* Light Mode */
+.light-mode .accordion-button.collapsed::after {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M7 16L16 7 25 16'/%3E%3C/svg%3E");
+    rotate: 180deg;
+}
+
+/* Dark Mode */
+.dark-mode .accordion-button.collapsed::after {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M7 16L16 7 25 16'/%3E%3C/svg%3E");
+    rotate: 180deg;
+}
+
+
+/* ========================================================================================================================================================================================================================================================================== */
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+    background-color: #fff;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    text-decoration: none;
+    transform: scale(1);
+    transition: transform 0.35s cubic-bezier(0.29, 0.97, 0, 1.85), -webkit-transform .35s cubic-bezier(0.29, 0.97, 0, 1.85), -o-transform .35s cubic-bezier(0.29, 0.97, 0, 1.85);
+}
+
+.social-icon:hover {
+    text-decoration: none;
+    transform: scale(1.1);
+}

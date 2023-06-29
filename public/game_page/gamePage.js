@@ -40,13 +40,11 @@ const currentGame = games.find(game => game.id === gameId);
 const suggestedGames = games.filter(game => game.id !== gameId);
 
 // Set the title of the page (the game page) based on the game clicked by the user.
-console.log(currentGame.title);
 document.title = currentGame.title;
 
 // Set the game display
 document.getElementById('game-iframe').src = `../game_files/${currentGame.id}/index.html`;
 document.getElementById('game-title').innerText = currentGame.title;
-document.getElementsByTagName("title").value = currentGame.title;
 // Add more data to the game display if needed
 
 // Create the suggested games carousel items
@@ -82,8 +80,6 @@ function createGameCard(game) {
     );
 
     let cardContent = document.createElement("div");
-
-
     cardContent.classList.add("card-body");
 
     let cardTitle = document.createElement("h6");
@@ -101,28 +97,11 @@ function createGameCard(game) {
     projectScreenshot.style.borderTop = "none";
     projectScreenshot.style.borderBottom = "0.5px solid white";
 
-    let btnGroup = document.createElement("div");
-    btnGroup.className = "btn-group";
-    btnGroup.setAttribute("role", "group");
-
-    let bugBtn = document.createElement("button");
-    bugBtn.setAttribute("type", "button");
-    bugBtn.setAttribute("data-bs-toggle", "modal");
-    bugBtn.setAttribute("data-bs-target", "#bugReportModal");
-    bugBtn.setAttribute("title", "Report a bug");
-    bugBtn.classList.add("btn", "btn-danger", "rounded", "ms-5", "mb-2", "hidden");
-    bugBtn.onclick = handleBugBtn.bind(this, game.id);
-
-    let bugText = document.createElement("span");
-    bugText.classList.add("bug-text");
-    bugText.innerHTML = "Report a Bug";
-
-    bugBtn.appendChild(bugText);
-
-
+    // Add a "Play" button into the each game chicklet.
     let playLink = document.createElement("div");
     playLink.className = "play-link";
     playLink.style.cursor = "pointer";
+    playLink.style.width = "2.8rem";
     playLink.onclick = () => {
         if (game.id == "journey-to-psyche") {
             window.open(`../${game.id}/journey_to_psyche.html`)
@@ -138,6 +117,7 @@ function createGameCard(game) {
     playText.innerHTML = "Play";
 
     let playDivider = document.createElement("div");
+    playDivider.className = "playDivider";
     playDivider.style.marginTop = "-15px";
     playDivider.style.width = "50px";
     playDivider.style.height = "2px";
@@ -145,11 +125,8 @@ function createGameCard(game) {
     playLink.appendChild(playText);
     playLink.appendChild(playDivider);
 
-    btnGroup.appendChild(playLink);
-    btnGroup.appendChild(bugBtn);
-
     cardContent.appendChild(cardTitle);
-    cardContent.appendChild(btnGroup);
+    cardContent.appendChild(playLink);
 
     card.appendChild(projectScreenshot);
     card.appendChild(cardContent);
@@ -158,9 +135,7 @@ function createGameCard(game) {
 }
 
 createSuggestedGameItems();
-var multipleCardCarousel = document.querySelector(
-    "#carouselExampleControls"
-);
+var multipleCardCarousel = document.querySelector("#carouselExampleControls");
 if (window.matchMedia("(min-width: 768px)").matches) {
     var carousel = new bootstrap.Carousel(multipleCardCarousel, {
         interval: false,

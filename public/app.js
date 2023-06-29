@@ -41,35 +41,29 @@ for (let index = 0; index < games.length; index++) {
 	playLink.className = "play-link";
 	playLink.style.cursor = "pointer";
 	playLink.style.width = "2.8rem";
-	var game_window = "";
 	playLink.onclick = () => {
 		if (games[index].id == "journey-to-psyche") {
-			game_window = window.open(`/${games[index].id}/journey_to_psyche.html`);
+			window.open(`/${games[index].id}/journey_to_psyche.html`);
 		} else if (games[index] == "15I") {
-			game_window = window.open(`/${games[index].id}/src`);
+			window.open(`/${games[index].id}/src`);
 		} else {
-			game_window = window.open(`/public/game_page?gameId=${games[index].id}`)
+			window.open(`/public/game_page?gameId=${games[index].id}`)
 		}
-		// game_window.addEventListener("load", function() {
-        //     game_window.document.title = games[index].title;
-        // });
 	};
 	let playText = document.createElement("p");
 	playText.style.letterSpacing = "1px";
 	playText.style.marginTop = "7px";
 	playText.innerHTML = "Play";
 
-	let playDivider1 = document.createElement("div");
-	playDivider1.className = "divider1"
-	playDivider1.style.marginTop = "-15px";
-	playDivider1.style.width = "100%";
-	playDivider1.style.height = "2px";
-	playDivider1.style.float = "left";
-	playDivider1.style.background = "linear-gradient(to right, rgb(29, 13, 68), rgb(89, 38, 81) 30%, rgb(165, 63, 91) 50%, rgb(239, 89, 102) 70%, rgb(244, 124, 51) 90%, rgb(249, 160, 0))";
+	let playDivider = document.createElement("div");
+	playDivider.className = "playDivider";
+	playDivider.style.marginTop = "-15px";
+	playDivider.style.width = "100%";
+	playDivider.style.height = "2px";
+	playDivider.style.float = "left";
+	playDivider.style.background = "linear-gradient(to right, rgb(29, 13, 68) 5%, rgb(89, 38, 81) 15%, rgb(165, 63, 91) 35%, rgb(239, 89, 102) 55%, rgb(244, 124, 51) 75%, rgb(249, 160, 0))";
 	playLink.appendChild(playText);
-	playLink.appendChild(playDivider1);
-
-	// btnGroup.appendChild(playLink);
+	playLink.appendChild(playDivider);
 
 	cardContent.appendChild(cardTitle);
 	cardContent.appendChild(playLink);
@@ -116,6 +110,67 @@ function applyFilters() {
 	});
 }
 
+var videoLinks = ['./data/media/jolts.mp4', './data/media/return_from_psyche.mp4', './data/media/survive_to_psyche.mov']
+var gameData = [{ "name": "Jolts Journey", "description": "something" }, { "name": "Return From Psyche", "description": "something" }, { "name": "Survive to Psyche", "description": "something" }]
+const gameLinks = document.querySelectorAll('.container ul li a');
+
+const video = document.querySelector('.container video');
+const gameIcons = document.querySelectorAll(".game-icon");
+
+video.addEventListener("ended", () => {
+	let currentIconIndex = -1;
+
+	// Find the index of the currently colored icon
+	for (let i = 0; i < gameIcons.length; i++) {
+		if (!gameIcons[i].classList.contains("grayscale")) {
+			currentIconIndex = i;
+			break;
+		}
+	}
+
+	// Add the bw class to the currently colored icon and remove it from the next icon
+	gameIcons[currentIconIndex].classList.add("grayscale");
+	gameIcons[(currentIconIndex + 1) % gameIcons.length].classList.remove("grayscale");
+
+	gameLinks[currentIconIndex].classList.remove("active");
+	gameLinks[(currentIconIndex + 1) % gameLinks.length].classList.add("active");
+
+	// Update the video source and start playing the next video
+	video.src = videoLinks[(currentIconIndex + 1) % videoLinks.length];
+	document.querySelector('.game-name').innerHTML = gameData[(currentIconIndex + 1) % gameData.length].name;
+	document.querySelector('.game-description').innerHTML = gameData[(currentIconIndex + 1) % gameData.length].description;
+	video.play();
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+	const themeToggle = document.getElementById("themeToggle");
+	const navbar = document.querySelector(".navbar");
+	const body = document.querySelector("body");
+	const footer = document.querySelector("footer");
+	const themeIcon = document.getElementById("themeIcon");
+
+	let darkMode = false;
+
+	themeToggle.addEventListener("change", () => {
+		darkMode = !darkMode;
+		if (darkMode) {
+			body.classList.remove("light-mode");
+			body.classList.add("dark-mode");
+			navbar.style.backgroundColor = "#2f2344";
+			body.style.backgroundColor = "#140022";
+			footer.style.backgroundColor = "#2f2344";
+			themeIcon.textContent = "nights_stay";
+		} else {
+			body.classList.remove("dark-mode");
+			body.classList.add("light-mode");
+			navbar.style.backgroundColor = "#41464b";
+			body.style.backgroundColor = "#ffffff";
+			footer.style.backgroundColor = "#41464b";
+			themeIcon.textContent = "wb_sunny";
+		}
+	});
+	document.getElementById("themeToggle").click();
+});
 
 // ============================================================================================================================================================
 
