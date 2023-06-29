@@ -1,96 +1,5 @@
-// Project List for all Web Based Projects (Games and WebXR)
-// src/data/games.js
-const games = [
-	{
-		id: 'jolts-journey',
-		title: 'JOLTS JOURNEY',
-		thumbnail: 'joltsl_journey.jpg',
-		difficulty: 'Easy',
-		genre: 'Arcade',
-		age: 'Elementary',
-		class: 'Nickel - 2022',
-		gtype: 'nickel',
-		video: 'jolts.mp4',
-	},
-	{
-		id: 'return-from-psyche',
-		title: 'RETURN FROM PSYCHE',
-		thumbnail: 'return_from_psyche.jpg',
-		difficulty: 'Medium',
-		genre: 'Adventure',
-		age: 'Middle School',
-		class: 'Copper - 2022',
-		gtype: 'copper',
-		video: 'return_from_psyche.mp4'
-	},
-	{
-		id: 'survive-to-psyche',
-		title: 'SURVIVE TO PSYCHE',
-		thumbnail: 'survive_to_psyche.jpg',
-		difficulty: 'Medium',
-		genre: 'Adventure',
-		age: 'Middle School',
-		class: 'Nickel - 2022',
-		gtype: 'nickel',
-		video: 'survive_to_psyche.mov'
-	},
-	{
-		id: 'passage-to-psyche',
-		title: 'PASSAGE TO PSYCHE',
-		thumbnail: 'passage_to_psyche.jpg',
-		difficulty: 'Medium',
-		genre: 'Arcade',
-		age: 'Middle School',
-		class: 'Nickel - 2022',
-		gtype: 'nickel',
-		video: '',
-	},
-	{
-		id: 'jump-to-psyche',
-		title: 'JUMP TO PSYCHE',
-		thumbnail: 'jump_to_psyche.jpg',
-		difficulty: 'Hard',
-		genre: 'Knowledge Quiz',
-		age: 'Middle School',
-		class: 'Nickel - 2022',
-		gtype: 'nickel',
-		video: '',
-	},
-	{
-		id: 'psyche-driller',
-		title: 'PSYCHE DRILLER',
-		thumbnail: 'psyche_driller.jpg',
-		difficulty: 'Hard',
-		genre: 'Adventure',
-		age: 'High',
-		class: 'Nickel - 2022',
-		gtype: 'nickel',
-		video: '',
-	},
-	{
-		id: 'journey-to-psyche',
-		title: 'JOURNEY TO PSYCHE',
-		thumbnail: 'journey_to_psyche.jpg',
-		difficulty: 'Medium',
-		genre: 'Trivia',
-		age: 'Middle School',
-		class: 'Nickel - 2022',
-		gtype: 'nickel',
-		video: '',
-	},
-	{
-		id: 'nasa-psyche-mission',
-		title: 'NASA PSYCHE MISSION',
-		thumbnail: 'nasa_psyche_mission.jpg',
-		difficulty: 'Easy',
-		genre: 'Arcade',
-		age: 'Elementary',
-		class: 'Nickel - 2022',
-		gtype: 'nickel',
-		video: '',
-	},
-	// Add more games as needed
-];
+// List for all Web Based Projects (Games and WebXR) is at src/data/games.js
+import games from "./data/games.js";
 
 // Creates the cards for all projects with play button
 for (let index = 0; index < games.length; index++) {
@@ -141,9 +50,9 @@ for (let index = 0; index < games.length; index++) {
 		} else {
 			game_window = window.open(`/public/game_page?gameId=${games[index].id}`)
 		}
-		game_window.addEventListener("load", function() {
-            game_window.document.title = games[index].title;
-        });
+		// game_window.addEventListener("load", function() {
+        //     game_window.document.title = games[index].title;
+        // });
 	};
 	let playText = document.createElement("p");
 	playText.style.letterSpacing = "1px";
