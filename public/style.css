@@ -14,13 +14,6 @@
     font-family: 'nasalization';
 }
 
-/* Footer styles */
-footer {
-    background-color: #302144;
-    color: white;
-    padding: 20px;
-}
-
 /* Search input styles */
 #searchInput {
     display: none;
@@ -225,6 +218,12 @@ nav {
 
 
 /* ========================================================================================================================================================================================================================================================================== */
+/* Footer styles */
+footer {
+    background-color: #302144;
+    color: white;
+    padding: 20px;
+}
 
 .social-icon {
     width: 40px;
