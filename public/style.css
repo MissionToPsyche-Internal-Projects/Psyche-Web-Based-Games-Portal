@@ -2,26 +2,23 @@
     font-family: "nasalization";
     src: url("./fonts/nasalizationrg.otf") format("truetype");
 }
+@font-face {
+    font-family: "floridaSerialRegular";
+    src: url("./fonts/Florida-Serial Regular.ttf") format("truetype");
+}
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Oxanium&display=swap'); */
 
-* {
+*{
     margin: 0;
     padding: 0;
-    font-family: "Rubik", sans-serif;
+    font-family: 'Khula', sans-serif;
 }
 
-#header-title {
-    font-family: 'nasalization';
-}
-
-/* Search input styles */
-#searchInput {
-    display: none;
-    background-color: transparent;
-    border: none;
-    border-bottom: 1px solid white;
-    outline: none;
-    color: white;
+.game-name {
+    font-family: 'floridaSerialRegular';
+    font-size: 1.5rem;
+    /* font-weight: bold; */
 }
 
 .grayscale {
@@ -29,9 +26,25 @@
 }
 
 #header-title{
+    font-family: 'nasalization';
     text-align: center;
     color: white;
     padding-left: 100px;
+}
+
+#welcome_message_1 {
+    font-family: 'Oxanium', cursive;
+}
+
+#welcome_message_2 {
+    font-family: 'Bellota Text', cursive;
+    font-size: 1.1em;
+}
+
+#welcome_message_2 a{
+    font-family: 'Bellota Text', cursive;
+    text-decoration:underline;
+    /* color: white; */
 }
 
 nav {
@@ -61,18 +74,81 @@ nav {
     color: white;
     border-radius: 15px !important;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-    transition: box-shadow 0.3s cubic-bezier(.25,.8,.25,1);
+    transform: scale(1);
+    transition: box-shadow 0.3s cubic-bezier(.25,.8,.25,1), transform 0.35s cubic-bezier(0.29, 0.97, 0, 1.85), -webkit-transform .35s cubic-bezier(0.29, 0.97, 0, 1.85), -o-transform .35s cubic-bezier(0.29, 0.97, 0, 1.85);
 }
 
 .card:hover {
     box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+    transform: scale(1.03);
 }
 
-.light-mode .game-link.active {
+.filters {
+    border-radius: 0px;
+}
+
+.card-img-top {
+    border-radius: 15px 15px 0px 0px !important;
+}
+
+.card-title {
+    font-family: "floridaSerialRegular";
+}
+
+.light-mode .filters.no-border .filters-header,
+.light-mode .filters.no-border .accordion-button,
+.light-mode .filters.no-border .accordion-body {
+    background-color: #fff;
+    color: #000;
+}
+
+/* Dark Mode */
+.dark-mode .filters.no-border,
+.dark-mode .filters.no-border .filters-header,
+.dark-mode .filters.no-border .accordion-button,
+.dark-mode .filters.no-border .accordion-body {
+    background-color: #130022;
+    color: #b7b2bc;
+}
+
+/* Light Mode */
+.light-mode .sort-text,
+.light-mode .sort-text:hover {
+    color: #000;
+}
+
+/* Dark Mode */
+.dark-mode .sort-text,
+.dark-mode .sort-text:hover {
+    color: #b7b2bc;
+}
+
+.light-mode .game-link.active{
     color: black;
 }
 
 .dark-mode .game-link.active {
+    color: white;
+}
+
+.light-mode #welcome_message{
+    color: black;
+}
+
+.dark-mode #welcome_message {
+    color: white;
+}
+
+.light-mode #welcome_message_2 {
+    font-weight: 600;
+}
+
+.light-mode #welcome_message_2 a{
+    color: black;
+    font-weight: 600;
+}
+
+.dark-mode #welcome_message_2 a{
     color: white;
 }
 
@@ -81,25 +157,27 @@ nav {
 }
 
 .dark-mode .game-link:not(.active) {
-    color: grey;
+    color: #b7b2bc;
 }
 
-.light-mode .game-link:not(.active):hover {
+/* .light-mode .game-link:not(.active):hover {
     color: black;
-}
+} */
 
-.dark-mode .game-link:not(.active):hover {
+/* .dark-mode .game-link:not(.active):hover {
     color: white;
-}
+} */
 
 .light-mode .game-name,
 .light-mode .game-description {
     color: black;
 }
 
-.dark-mode .game-name,
-.dark-mode .game-description {
+.dark-mode .game-name{
     color: white;
+}
+.dark-mode .game-description {
+    color: #b7b2bc;
 }
 
 .light-mode .divider {
@@ -110,21 +188,19 @@ nav {
     background-color: #2f2344;
 }
 
-.light-mode video {
+.light-mode #alphabetically_text,
+.light-mode .filters-title {
+    font-weight: bold;
+}
+
+.dark-mode #alphabetically_text,
+.dark-mode .filters-title {
+    color: white;
+}
+
+video {
     box-shadow:0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
-
-.dark-mode video {
-    box-shadow:0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-}
-
-/* .light-mode .card {
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-}
-
-.dark-mode .card {
-    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
-} */
 
 /* ========================================================================================================================================================================================================================================================================== */
 .play-link > p {
@@ -136,6 +212,7 @@ nav {
 }
 
 .playDivider {
+    background:linear-gradient(to right, rgb(29, 13, 68) 5%, rgb(89, 38, 81) 15%, rgb(165, 63, 91) 35%, rgb(239, 89, 102) 55%, rgb(244, 124, 51) 75%, rgb(249, 160, 0));
     transform-origin: left;
     transform: scaleX(0);
     transition: transform .35s cubic-bezier(0.42, 0, 0.05, 0.99);
@@ -225,6 +302,47 @@ footer {
     padding: 20px;
 }
 
+#contactUsDiv{
+    width: 6.4em;
+    margin-left: 13em;
+}
+
+#contactUs {
+    float: right;
+    margin-top: 1em;
+    color: #908a9c;
+    text-decoration: none;
+    transition: color .35s cubic-bezier(0.42, 0, 0.05, 0.99);
+}
+
+#contactUsDivider{
+    background:linear-gradient(to right, rgb(29, 13, 68) 5%, rgb(89, 38, 81) 15%, rgb(165, 63, 91) 35%, rgb(239, 89, 102) 55%, rgb(244, 124, 51) 75%, rgb(249, 160, 0));
+    transform-origin: left;
+    transform: scaleX(0);
+    transition: transform .35s cubic-bezier(0.42, 0, 0.05, 0.99);
+}
+
+#contactUsDiv:hover #contactUsDivider{
+    transform: scaleX(1);
+    color: white;
+}
+
+#contactUsDiv:not(:hover) #contactUsDivider{
+    transform-origin: right;
+    transform: scaleX(0);
+    color: #908a9c;
+}
+
+#contactUsDiv:hover #contactUs{
+    color: white;
+}
+
+.dark-mode #contactUsDiv:not(:hover) #contactUs{
+    color: #908a9c;
+}
+.light-mode #contactUsDiv:not(:hover) #contactUs{
+    color: #bbbbbb;
+}
 .social-icon {
     width: 40px;
     height: 40px;

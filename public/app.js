@@ -27,7 +27,7 @@ for (let index = 0; index < games.length; index++) {
 
 	let projectScreenshot = document.createElement("img");
 	projectScreenshot.classList.add("card-img-top");
-	projectScreenshot.src = `images/${games[index].id}.png`;
+	projectScreenshot.src = `images/${games[index].thumbnail}`;
 	projectScreenshot.onerror = () => projectScreenshot.src = 'images/error.png'
 	projectScreenshot.style.width = "100%";
 	projectScreenshot.style.height = "150%";
@@ -41,15 +41,7 @@ for (let index = 0; index < games.length; index++) {
 	playLink.className = "play-link";
 	playLink.style.cursor = "pointer";
 	playLink.style.width = "2.8rem";
-	playLink.onclick = () => {
-		if (games[index].id == "journey-to-psyche") {
-			window.open(`/${games[index].id}/journey_to_psyche.html`);
-		} else if (games[index] == "15I") {
-			window.open(`/${games[index].id}/src`);
-		} else {
-			window.open(`/public/game_page?gameId=${games[index].id}`)
-		}
-	};
+    playLink.onclick = () => {window.open(`/game_page?gameId=${games[index].id}`)};
 	let playText = document.createElement("p");
 	playText.style.letterSpacing = "1px";
 	playText.style.marginTop = "7px";
@@ -61,7 +53,7 @@ for (let index = 0; index < games.length; index++) {
 	playDivider.style.width = "100%";
 	playDivider.style.height = "2px";
 	playDivider.style.float = "left";
-	playDivider.style.background = "linear-gradient(to right, rgb(29, 13, 68) 5%, rgb(89, 38, 81) 15%, rgb(165, 63, 91) 35%, rgb(239, 89, 102) 55%, rgb(244, 124, 51) 75%, rgb(249, 160, 0))";
+	// playDivider.style.background = "linear-gradient(to right, rgb(29, 13, 68) 5%, rgb(89, 38, 81) 15%, rgb(165, 63, 91) 35%, rgb(239, 89, 102) 55%, rgb(244, 124, 51) 75%, rgb(249, 160, 0))";
 	playLink.appendChild(playText);
 	playLink.appendChild(playDivider);
 
@@ -87,22 +79,32 @@ filterCheckboxes.forEach(checkbox => {
 
 function applyFilters() {
 	const cards = document.querySelectorAll('#projectsGroup16 .card');
-	const anyFilterChecked = document.querySelector('#filterAccordion input[type=checkbox]:checked') !== null;
+	var classFilter = Array.from(document.querySelectorAll("input[type=checkbox][id$=Class]:checked"));
+	var classFilterValues = [];
+	if(classFilter.length==0) classFilterValues = ["Silver - 2023", "Copper - 2022", "Nickel - 2021"];
+	else classFilterValues = classFilter.map((element) => element.getAttribute("value"));
+
+	var genreFilter = Array.from(document.querySelectorAll("input[type=checkbox][id$=Genre]:checked"));
+	var genreFilterValues = [];
+	if(genreFilter.length==0) genreFilterValues = ["Arcade", "Adventure", "Simulation", "Trivia"];
+	else genreFilterValues = genreFilter.map((element) => {return element.getAttribute("value");});
+	
+	var ageFilter = Array.from(document.querySelectorAll("input[type=checkbox][id$=Age]:checked"));
+	var ageFilterValues = [];
+	if(ageFilter.length==0) ageFilterValues = ["Elementary", "Middle School", "High School"];
+	else ageFilterValues = ageFilter.map((element) => element.getAttribute("value"));
+	
+	var difficultyFilter = Array.from(document.querySelectorAll("input[type=checkbox][id$=Difficulty]:checked"));
+	var difficultyFilterValues = [];
+	if(difficultyFilter.length==0) difficultyFilterValues = ["Easy", "Medium", "Hard"];
+	else difficultyFilterValues = difficultyFilter.map((element) => element.getAttribute("value"));	
+
 	cards.forEach(card => {
 		const cardClass = card.getAttribute('game-class');
 		const cardGenre = card.getAttribute('game-genre');
-
 		const cardAge = card.getAttribute('game-age');
 		const cardDifficulty = card.getAttribute('game-difficulty');
-
-		const classFilter = document.querySelector(`input[type=checkbox][id$=Class][value="${cardClass}"]:checked`);
-		const genreFilter = document.querySelector(`input[type=checkbox][id$=Genre][value="${cardGenre}"]:checked`);
-		const ageFilter = document.querySelector(`input[type=checkbox][id$=Age][value="${cardAge}"]:checked`);
-		const difficultyFilter = document.querySelector(`input[type=checkbox][id$=Difficulty][value="${cardDifficulty}"]:checked`);
-
-
-
-		if (classFilter || genreFilter || ageFilter || difficultyFilter || !anyFilterChecked) {
+		if (classFilterValues.indexOf(cardClass) >-1 && genreFilterValues.indexOf(cardGenre) >-1 && ageFilterValues.indexOf(cardAge) >-1 && difficultyFilterValues.indexOf(cardDifficulty) >-1) {
 			card.style.display = card.getAttribute('data-original-display');
 		} else {
 			card.style.display = 'none';
@@ -110,37 +112,35 @@ function applyFilters() {
 	});
 }
 
-var videoLinks = ['./data/media/jolts.mp4', './data/media/return_from_psyche.mp4', './data/media/survive_to_psyche.mov']
-var gameData = [{ "name": "Jolts Journey", "description": "something" }, { "name": "Return From Psyche", "description": "something" }, { "name": "Survive to Psyche", "description": "something" }]
+var gameData = [games[0], games[1], games[2]];
 const gameLinks = document.querySelectorAll('.container ul li a');
-
 const video = document.querySelector('.container video');
 const gameIcons = document.querySelectorAll(".game-icon");
 
-video.addEventListener("ended", () => {
-	let currentIconIndex = -1;
+// video.addEventListener("ended", () => {
+// 	let currentIconIndex = -1;
 
-	// Find the index of the currently colored icon
-	for (let i = 0; i < gameIcons.length; i++) {
-		if (!gameIcons[i].classList.contains("grayscale")) {
-			currentIconIndex = i;
-			break;
-		}
-	}
+// 	// Find the index of the currently colored icon
+// 	for (let i = 0; i < gameIcons.length; i++) {
+// 		if (!gameIcons[i].classList.contains("grayscale")) {
+// 			currentIconIndex = i;
+// 			break;
+// 		}
+// 	}
 
-	// Add the bw class to the currently colored icon and remove it from the next icon
-	gameIcons[currentIconIndex].classList.add("grayscale");
-	gameIcons[(currentIconIndex + 1) % gameIcons.length].classList.remove("grayscale");
+// 	// Add the bw class to the currently colored icon and remove it from the next icon
+// 	gameIcons[currentIconIndex].classList.add("grayscale");
+// 	gameIcons[(currentIconIndex + 1) % gameIcons.length].classList.remove("grayscale");
 
-	gameLinks[currentIconIndex].classList.remove("active");
-	gameLinks[(currentIconIndex + 1) % gameLinks.length].classList.add("active");
+// 	gameLinks[currentIconIndex].classList.remove("active");
+// 	gameLinks[(currentIconIndex + 1) % gameLinks.length].classList.add("active");
 
-	// Update the video source and start playing the next video
-	video.src = videoLinks[(currentIconIndex + 1) % videoLinks.length];
-	document.querySelector('.game-name').innerHTML = gameData[(currentIconIndex + 1) % gameData.length].name;
-	document.querySelector('.game-description').innerHTML = gameData[(currentIconIndex + 1) % gameData.length].description;
-	video.play();
-});
+// 	// Update the video source and start playing the next video
+// 	video.src = `./data/media/${gameData[(currentIconIndex + 1) % gameData.length].video}`;
+// 	document.querySelector('.game-name').innerHTML = gameData[(currentIconIndex + 1) % gameData.length].title.toUpperCase();
+// 	document.querySelector('.game-description').innerHTML = gameData[(currentIconIndex + 1) % gameData.length].description;
+// 	video.play();
+// });
 
 document.addEventListener("DOMContentLoaded", function () {
 	const themeToggle = document.getElementById("themeToggle");
@@ -170,8 +170,40 @@ document.addEventListener("DOMContentLoaded", function () {
 		}
 	});
 	document.getElementById("themeToggle").click();
+	document.getElementById("sortButton").click();
 });
 
+// let sortAscending = true;
+// function toggleSort() {
+// 	const projectGroups = document.querySelectorAll("#projectCards .row");
+// 	const sortIcon = document.getElementById("sortIcon");
+
+// 	projectGroups.forEach(group => {
+// 		const sortedGroup = Array.from(group.children).sort((a, b) => {
+// 			const aName = a.querySelector(".card-title").innerText;
+// 			const bName = b.querySelector(".card-title").innerText;
+
+// 			if (sortAscending) {
+// 				return aName.localeCompare(bName);
+// 			} else {
+// 				return bName.localeCompare(aName);
+// 			}
+// 		});
+
+// 		group.innerHTML = "";
+// 		sortedGroup.forEach(card => {
+// 			group.appendChild(card);
+// 		});
+// 	});
+
+// 	if (sortAscending) {
+// 		sortIcon.classList.replace("bi-chevron-down", "bi-chevron-up");
+// 	} else {
+// 		sortIcon.classList.replace("bi-chevron-up", "bi-chevron-down");
+// 	}
+
+// 	sortAscending = !sortAscending;
+// }
 // ============================================================================================================================================================
 
 // function passwordProtecion() {

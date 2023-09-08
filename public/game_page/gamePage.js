@@ -37,44 +37,53 @@ const gameId = urlSearchParams.get('gameId');
 
 // Find the current game and suggested games from the `games` array
 const currentGame = games.find(game => game.id === gameId);
-const suggestedGames = games.filter(game => game.id !== gameId);
+const suggestableGames = games.filter(game => game.id !== gameId);
 
 // Set the title of the page (the game page) based on the game clicked by the user.
 document.title = currentGame.title;
 
 // Set the game display
-document.getElementById('game-iframe').src = `../game_files/${currentGame.id}/index.html`;
-document.getElementById('game-title').innerText = currentGame.title;
+document.getElementById('game-iframe').src = currentGame.src;
+document.getElementById('game-name').innerText = currentGame.title;
+document.getElementById('game-description').innerText = currentGame.description!=''?currentGame.description:"Psyche - Journey to Metal World";;
+document.querySelector('#game_info_class span').innerHTML = currentGame.class!=''?currentGame.class:"-";
+document.querySelector('#game_info_genre span').innerHTML = currentGame.genre!=''?currentGame.genre:"-";
+document.querySelector('#game_info_age span').innerHTML = currentGame.age!=''?currentGame.age:"-";
+document.querySelector('#game_info_difficulty span').innerHTML = currentGame.difficulty!=''?currentGame.difficulty:"-";
+document.querySelector('#game_info_credits span').innerHTML = currentGame.credits!=''?currentGame.credits:"-";
+document.querySelector('#note_message').style.display = currentGame.class=="Nickel - 2021" || currentGame.class=="Copper - 2022" ? "block" : "None";
 // Add more data to the game display if needed
 
-// Create the suggested games carousel items
-function createSuggestedGameItems() {
-    const suggestedCarousel = document.getElementsByClassName('carousel-inner')[0];
-    for (let i = 0; i < suggestedGames.length; i++) {
-        const carouselItem = document.createElement('div');
-        carouselItem.classList.add('carousel-item');
-
-        if (i === 0) {
-            carouselItem.classList.add('active');
-        }
-
-        carouselItem.appendChild(createGameCard(suggestedGames[i]));
-        suggestedCarousel.appendChild(carouselItem);
+// Create the suggested games items
+function createSuggestedGameItems(arr) {
+    // Make a copy of the original array
+    var numberOfsuggestions = 3;
+    const shuffledArray = arr.slice();
+    
+    // Fisher-Yates shuffle algorithm
+    for (let i = shuffledArray.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
+    }
+    
+    var randomlySelectedSuggestions = shuffledArray.slice(0, numberOfsuggestions);
+    for(var i = 0; i<randomlySelectedSuggestions.length; i++){
+        var gameCard = createGameCard(randomlySelectedSuggestions[i]);
+        document.getElementById("suggested_games").appendChild(gameCard);
     }
 }
 
 function createGameCard(game) {
     let card = document.createElement("div");
-    card.style.height = "80%";
+    card.className = "card";
     card.setAttribute("game-class", game.class);
     card.setAttribute("game-genre", game.genre);
     card.setAttribute("game-age", game.age);
     card.setAttribute("game-difficulty", game.difficulty);
     card.classList.add(
         "border-0",
-        "col-8",
+        "col-2",
         "p-0",
-        "ms-5",
         "mb-5",
         "card"
     );
@@ -91,7 +100,7 @@ function createGameCard(game) {
     projectScreenshot.src = `../images/${game.id}.png`;
     projectScreenshot.onerror = () => projectScreenshot.src = '../images/error.png'
     projectScreenshot.style.width = "100%";
-    projectScreenshot.style.height = "100%";
+    projectScreenshot.style.height = "150%";
     projectScreenshot.style.borderRight = "none";
     projectScreenshot.style.borderLeft = "none";
     projectScreenshot.style.borderTop = "none";
@@ -102,26 +111,19 @@ function createGameCard(game) {
     playLink.className = "play-link";
     playLink.style.cursor = "pointer";
     playLink.style.width = "2.8rem";
-    playLink.onclick = () => {
-        if (game.id == "journey-to-psyche") {
-            window.open(`../${game.id}/journey_to_psyche.html`)
-        } else if (game.id == "15I") {
-            window.open(`../${game.id}/src`)
-        } else {
-            window.open(`/public/game_page?gameId=${game.id}`)
-        }
-    };
+    playLink.onclick = () => {window.open(`?gameId=${game.id}`)};
     let playText = document.createElement("p");
-    playText.style.fontSize = "20px";
-    playText.style.marginTop = "-8px";
+    playText.style.letterSpacing = "1px";
+	playText.style.marginTop = "7px";
     playText.innerHTML = "Play";
 
     let playDivider = document.createElement("div");
     playDivider.className = "playDivider";
     playDivider.style.marginTop = "-15px";
-    playDivider.style.width = "50px";
-    playDivider.style.height = "2px";
-    playDivider.style.background = "linear-gradient(to right, #140022, #FF5F6D, #FFC371)";
+	playDivider.style.width = "100%";
+	playDivider.style.height = "2px";
+	playDivider.style.float = "left";
+	playDivider.style.background = "linear-gradient(to right, rgb(29, 13, 68) 5%, rgb(89, 38, 81) 15%, rgb(165, 63, 91) 35%, rgb(239, 89, 102) 55%, rgb(244, 124, 51) 75%, rgb(249, 160, 0))";
     playLink.appendChild(playText);
     playLink.appendChild(playDivider);
 
@@ -133,37 +135,36 @@ function createGameCard(game) {
 
     return card;
 }
-
-createSuggestedGameItems();
-var multipleCardCarousel = document.querySelector("#carouselExampleControls");
-if (window.matchMedia("(min-width: 768px)").matches) {
-    var carousel = new bootstrap.Carousel(multipleCardCarousel, {
-        interval: false,
-    });
-    var carouselWidth = $(".carousel-inner")[0].scrollWidth;
-    var cardWidth = $(".carousel-item").width();
-    var scrollPosition = 0;
-    $("#carouselExampleControls .carousel-control-next").on("click", function () {
-        if (scrollPosition < carouselWidth - cardWidth * 4) {
-            scrollPosition += cardWidth;
-            $("#carouselExampleControls .carousel-inner").animate(
-                { scrollLeft: scrollPosition },
-                600
-            );
-        }
-    });
-    $("#carouselExampleControls .carousel-control-prev").on("click", function () {
-        if (scrollPosition > 0) {
-            scrollPosition -= cardWidth;
-            $("#carouselExampleControls .carousel-inner").animate(
-                { scrollLeft: scrollPosition },
-                600
-            );
-        }
-    });
-} else {
-    $(multipleCardCarousel).addClass("slide");
-}
+createSuggestedGameItems(suggestableGames);
+// var multipleCardCarousel = document.querySelector("#carouselExampleControls");
+// if (window.matchMedia("(min-width: 768px)").matches) {
+//     var carousel = new bootstrap.Carousel(multipleCardCarousel, {
+//         interval: false,
+//     });
+//     var carouselWidth = $(".carousel-inner")[0].scrollWidth;
+//     var cardWidth = $(".carousel-item").width();
+//     var scrollPosition = 0;
+//     $("#carouselExampleControls .carousel-control-next").on("click", function () {
+//         if (scrollPosition < carouselWidth - cardWidth * 4) {
+//             scrollPosition += cardWidth;
+//             $("#carouselExampleControls .carousel-inner").animate(
+//                 { scrollLeft: scrollPosition },
+//                 600
+//             );
+//         }
+//     });
+//     $("#carouselExampleControls .carousel-control-prev").on("click", function () {
+//         if (scrollPosition > 0) {
+//             scrollPosition -= cardWidth;
+//             $("#carouselExampleControls .carousel-inner").animate(
+//                 { scrollLeft: scrollPosition },
+//                 600
+//             );
+//         }
+//     });
+// } else {
+//     $(multipleCardCarousel).addClass("slide");
+// }
 
 const gameIframe = document.getElementById("game-iframe");
 const fullscreenButton = document.getElementById("fullscreen-button");

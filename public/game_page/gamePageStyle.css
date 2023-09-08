@@ -1,34 +1,42 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap");
-
+@font-face {
+    font-family: "nasalization";
+    src: url("../fonts/nasalizationrg.otf") format("truetype");
+}
+@font-face {
+    font-family: "floridaSerialRegular";
+    src: url("../fonts/Florida-Serial Regular.ttf") format("truetype");
+}
 * {
     margin: 0;
     padding: 0;
-    font-family: "Rubik", sans-serif;
+    font-family: 'Khula', sans-serif;
 }
 
 .no-border {
     border: none !important;
 }
 
-.accordion-item {
-    border: none !important;
-}
-
-.accordion-item .accordion-button {
-    border: none !important;
-}
-
-.navbar-toggler-icon {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-}
-
-#searchInput {
-    display: none;
-    background-color: transparent;
-    border: none;
-    border-bottom: 1px solid white;
-    outline: none;
+#header-title{
+    font-family: 'nasalization';
+    text-align: center;
     color: white;
+    padding-left: 100px;
+}
+
+.section-title {
+    font-size: 1.2em;
+}
+
+#suggested_games_title {
+    
+    margin-left: 1.5em;
+    margin-top: -1em !important; 
+    margin-bottom: 1.2em;
+}
+
+.card-title {
+    font-family: "floridaSerialRegular";
 }
 
 #fullscreen-button {
@@ -56,14 +64,9 @@
     box-shadow:0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
-.carousel-control-prev,
-.carousel-control-next {
-    background-color: #e1e1e1;
-    width: 6vh;
-    height: 6vh;
-    border-radius: 50%;
-    top: 50%;
-    transform: translateY(-50%);
+#game-name {
+    font-family: 'floridaSerialRegular';
+    font-size: 1.5rem;
 }
 
 @media (min-width: 768px) {
@@ -108,15 +111,54 @@
 }
 
 
-#carouselExampleControls .card {
-    background-color: #2f2344;
-    border-radius: 30px;
+.card {
+    background-color: #2f2344 !important;
     color: white;
+    margin-left: 12.5rem;
+    border-radius: 15px !important;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    transform: scale(1);
+    transition: box-shadow 0.3s cubic-bezier(.25,.8,.25,1), transform 0.35s cubic-bezier(0.29, 0.97, 0, 1.85), -webkit-transform .35s cubic-bezier(0.29, 0.97, 0, 1.85), -o-transform .35s cubic-bezier(0.29, 0.97, 0, 1.85);
+}
+
+.card:hover {
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+    transform: scale(1.03);
 }
 
 .card-img-top {
-    border-radius: 20px 20px 0px 0px;
+    border-radius: 15px 15px 0px 0px !important;
 }
+/* ================================================================================================================================================================================== */
+
+.play-link > p {
+    color: #908a9c;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 15px;
+    letter-spacing: 1px;
+    transition: font-size .35s cubic-bezier(0.42, 0, 0.05, 0.99), color .35s cubic-bezier(0.42, 0, 0.05, 0.99);
+}
+
+.playDivider {
+    transform-origin: left;
+    transform: scaleX(0);
+    transition: transform .35s cubic-bezier(0.42, 0, 0.05, 0.99);
+}
+
+.play-link:hover > p{
+    /* font-size: 17px; */
+    color: white;
+}
+
+.play-link:hover .playDivider{
+    transform: scaleX(1);
+}
+
+.play-link:not(:hover) .playDivider{
+    transform-origin: right;
+    transform: scaleX(0);
+}
+/* ================================================================================================================================== */
 
 .light-mode .game-link.active {
     color: black;
@@ -142,14 +184,29 @@
     color: white;
 }
 
-.light-mode .game-name,
-.light-mode .game-description {
+.light-mode #game-name,
+.light-mode #game-description {
     color: black;
 }
 
-.dark-mode .game-name,
-.dark-mode .game-description {
+.dark-mode #game-name {
     color: white;
+}
+.dark-mode #game-description {
+    color: #b7b2bc;
+}
+
+.light-mode #game_info_section
+.light-mode .list-group-item {
+    background-color: white;
+    color: black;
+}
+
+.dark-mode #game_info_section,
+.dark-mode .list-group-item {
+    background-color: #140022;
+    color: #b7b2bc;
+    border-color: #b7b2bc;
 }
 
 .light-mode .divider {
@@ -160,13 +217,67 @@
     background-color: #2f2344;
 }
 
+.list-group-item span {
+    float: right;
+}
+
+/* .light-mode .section-title {
+    font-weight: bold;
+} */
+
+.dark-mode .section-title {
+    color: white;
+}
+
 /* ========================================================================================================================================================================================================================================================================== */
 footer {
     background-color: #302144;
     color: white;
     padding: 20px;
+    font-family: 'nasalization'; 
 }
 
+#contactUsDiv{
+    width: 6.4em;
+    margin-left: 13em;
+}
+
+#contactUs {
+    float: right;
+    margin-top: 1em;
+    color: #908a9c;
+    text-decoration: none;
+    transition: color .35s cubic-bezier(0.42, 0, 0.05, 0.99);
+}
+
+#contactUsDivider{
+    background:linear-gradient(to right, rgb(29, 13, 68) 5%, rgb(89, 38, 81) 15%, rgb(165, 63, 91) 35%, rgb(239, 89, 102) 55%, rgb(244, 124, 51) 75%, rgb(249, 160, 0));
+    transform-origin: left;
+    transform: scaleX(0);
+    transition: transform .35s cubic-bezier(0.42, 0, 0.05, 0.99);
+}
+
+#contactUsDiv:hover #contactUsDivider{
+    transform: scaleX(1);
+    color: white;
+}
+
+#contactUsDiv:not(:hover) #contactUsDivider{
+    transform-origin: right;
+    transform: scaleX(0);
+    color: #908a9c;
+}
+
+#contactUsDiv:hover #contactUs{
+    color: white;
+}
+
+.dark-mode #contactUsDiv:not(:hover) #contactUs{
+    color: #908a9c;
+}
+.light-mode #contactUsDiv:not(:hover) #contactUs{
+    color: #bbbbbb;
+}
 .social-icon {
     width: 40px;
     height: 40px;
