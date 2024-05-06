@@ -81,7 +81,7 @@ function applyFilters() {
 	const cards = document.querySelectorAll('#projectsGroup16 .card');
 	var classFilter = Array.from(document.querySelectorAll("input[type=checkbox][id$=Class]:checked"));
 	var classFilterValues = [];
-	if(classFilter.length==0) classFilterValues = ["Silver - 2023", "Copper - 2022", "Nickel - 2021"];
+	if(classFilter.length==0) classFilterValues = ["Tungsten - 2024","Silver - 2023", "Copper - 2022", "Nickel - 2021"];
 	else classFilterValues = classFilter.map((element) => element.getAttribute("value"));
 
 	var genreFilter = Array.from(document.querySelectorAll("input[type=checkbox][id$=Genre]:checked"));
