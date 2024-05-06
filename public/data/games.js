@@ -385,6 +385,20 @@ const games = [
 		description: 'Get ready for an epic adventure in Puzzle Chambers! Step into the shoes of a daring explorer and tackle two mind-bending puzzle rooms that will test your wits and creativity. Unravel the secrets of the Psyche mission as you explore an office filled with enigmatic clues and interactive objects, leading you to unlock thrilling new stages. Are you up for the challenge?',
 		src: 'https://web-based-game-18j-2022.web.app/',
 	},
+	{
+		id: 'astro-academy',
+		title: 'ASTRO ACADEMY',
+		thumbnail: 'astro-academy.png',
+		difficulty: 'Medium',
+		genre: 'Arcade',
+		age: 'High School',
+		class: 'Tungsten - 2024',
+		gtype: 'tungsten',
+		video: '',
+		credits: 'Gareett Goofwin, Julia Kye, Leo-Paul Morel, Maiya Shefik, Neha Balamurugan, Pratham Gupta',
+		description: 'Test',
+		src: 'https://missiontopsyche.github.io/tungsten_12g_web_game/',
+	},
 	// Add more games as needed
 ];
 
