@@ -396,7 +396,7 @@ const games = [
 		gtype: 'tungsten',
 		video: '',
 		credits: 'Gareett Goofwin, Julia Kye, Leo-Paul Morel, Maiya Shefik, Neha Balamurugan, Pratham Gupta',
-		description: 'Test',
+		description: 'Welcome to Astro Academy, the ultimate test of your combat skills in the vastness of space! Engage in a thrilling top-down shooter experience where you, the lone starfighter, must battle against relentless waves of enemies in an unforgiving galactic arena.',
 		src: 'https://missiontopsyche.github.io/tungsten_12g_web_game/',
 	},
 	{
@@ -410,7 +410,7 @@ const games = [
 		gtype: 'tungsten',
 		video: '',
 		credits: 'Bryant Lopez Roman, Dhalia Nguyen, James Oliver, Joshua Benn, Matthew Myers',
-		description: 'Test',
+		description: 'A futuristic adventure exploration 2D platformer using tools inspired by the Psyche spacecraft to navigate a new environment. In the far, distant future, after getting lost and crashing into the old Psyche spacecraft, a space delivery driver ends up stranded on the Psyche asteroid. Find elements throughout 8 unique levels to upgrade your tools, collect 8 tungsten pieces to fix up the ship, and get this poor delivery driver back on track!',
 		src: 'https://missiontopsyche.github.io/tungsten_12a_web_game-se/M.I.S.T/',
 	}
 	// Add more games as needed
