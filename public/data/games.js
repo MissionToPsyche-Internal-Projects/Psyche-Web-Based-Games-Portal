@@ -76,7 +76,7 @@ const games = [
 		thumbnail: 'psyche-driller.png',
 		difficulty: 'Hard',
 		genre: 'Adventure',
-		age: 'High',
+		age: 'High School',
 		class: 'Nickel - 2021',
 		gtype: 'nickel',
 		video: '',
@@ -399,6 +399,20 @@ const games = [
 		description: 'Test',
 		src: 'https://missiontopsyche.github.io/tungsten_12g_web_game/',
 	},
+	{
+		id: 'mist',
+		title: 'MIST',
+		thumbnail: 'mist.png',
+		difficulty: 'Hard',
+		genre: 'Arcade',
+		age: 'High School',
+		class: 'Tungsten - 2024',
+		gtype: 'tungsten',
+		video: '',
+		credits: 'Bryant Lopez Roman, Dhalia Nguyen, James Oliver, Joshua Benn, Matthew Myers',
+		description: 'Test',
+		src: 'https://missiontopsyche.github.io/tungsten_12a_web_game-se/M.I.S.T/',
+	}
 	// Add more games as needed
 ];
 

@@ -66,45 +66,113 @@ for (let index = 0; index < games.length; index++) {
 }
 
 // Add event listeners to the filter checkboxes
-const filterCheckboxes = document.querySelectorAll('.form-check-input');
+let filterCheckboxes = Array.from(document.querySelectorAll('.form-check-input'));
 filterCheckboxes.forEach(checkbox => {
 	if (checkbox.id == "themeToggle") {
-
 	}
 	else {
-		checkbox.addEventListener('change', applyFilters);
+		checkbox.addEventListener('click', function(){
+			applyFilters(this);
+		});
 	}
 
 });
 
-function applyFilters() {
-	const cards = document.querySelectorAll('#projectsGroup16 .card');
-	var classFilter = Array.from(document.querySelectorAll("input[type=checkbox][id$=Class]:checked"));
-	var classFilterValues = [];
-	if(classFilter.length==0) classFilterValues = ["Tungsten - 2024","Silver - 2023", "Copper - 2022", "Nickel - 2021"];
-	else classFilterValues = classFilter.map((element) => element.getAttribute("value"));
+filterCheckboxes = filterCheckboxes.filter(checkbox => checkbox.id !== "themeToggle");
 
-	var genreFilter = Array.from(document.querySelectorAll("input[type=checkbox][id$=Genre]:checked"));
-	var genreFilterValues = [];
-	if(genreFilter.length==0) genreFilterValues = ["Arcade", "Adventure", "Simulation", "Trivia"];
-	else genreFilterValues = genreFilter.map((element) => {return element.getAttribute("value");});
+// console.log(filterCheckboxes);
+
+//Default values
+let ClassFilterValues = ["Tungsten - 2024","Silver - 2023", "Copper - 2022", "Nickel - 2021"];
+let GenreFilterValues = ["Arcade", "Adventure", "Simulation", "Trivia"];
+let AgeFilterValues = ["Elementary", "Middle School", "High School"];
+let DifficultyFilterValues = ["Easy", "Medium", "Hard"];
+
+//Checked values
+let checkedClassFilterValues = ["Tungsten - 2024","Silver - 2023", "Copper - 2022", "Nickel - 2021"];
+let checkedGenreFilterValues = ["Arcade", "Adventure", "Simulation", "Trivia"];
+let checkedAgeFilterValues = ["Elementary", "Middle School", "High School"];
+let checkedDifficultyFilterValues = ["Easy", "Medium", "Hard"];
+
+function applyFilters(checkbox) {
+	const cards = document.querySelectorAll('#projectsGroup16 .card');
+
+    const value = checkbox.value;
+    const isChecked = checkbox.checked;
+    console.log("Inside apply filters!!");
+    console.log(value, isChecked);
+
+    // Remove or add the value from/to the respective array based on the checkbox state
+    if (ClassFilterValues.includes(value)) {
+        if (isChecked) {
+            if (!checkedClassFilterValues.includes(value)) {
+                checkedClassFilterValues.push(value);
+            }
+        } else {
+            checkedClassFilterValues = checkedClassFilterValues.filter(val => val !== value);
+        }
+    } else if (AgeFilterValues.includes(value)) {
+        if (isChecked) {
+            if (!checkedAgeFilterValues.includes(value)) {
+                checkedAgeFilterValues.push(value);
+            }
+        } else {
+            checkedAgeFilterValues = checkedAgeFilterValues.filter(val => val !== value);
+        }
+    } else if (GenreFilterValues.includes(value)) {
+        if (isChecked) {
+            if (!checkedGenreFilterValues.includes(value)) {
+                checkedGenreFilterValues.push(value);
+            }
+        } else {
+            checkedGenreFilterValues = checkedGenreFilterValues.filter(val => val !== value);
+        }
+    } else if (DifficultyFilterValues.includes(value)) {
+        if (isChecked) {
+            if (!checkedDifficultyFilterValues.includes(value)) {
+                checkedDifficultyFilterValues.push(value);
+            }
+        } else {
+            checkedDifficultyFilterValues = checkedDifficultyFilterValues.filter(val => val !== value);
+        }
+    }
+
+    console.log({
+        checkedClassFilterValues,
+        checkedGenreFilterValues,
+        checkedAgeFilterValues,
+        checkedDifficultyFilterValues
+    });
+
+
+
+	// const filterCheckboxes = document.querySelectorAll('.form-check-input');
+	// var classFilter = Array.from(document.querySelectorAll("input[type=checkbox][id$=Class]:checked"));
+	// var classFilterValues = [];
+	// if(classFilter.length==0) classFilterValues = ["Tungsten - 2024","Silver - 2023", "Copper - 2022", "Nickel - 2021"];
+	// else classFilterValues = classFilter.map((element) => element.getAttribute("value"));
+
+	// var genreFilter = Array.from(document.querySelectorAll("input[type=checkbox][id$=Genre]:checked"));
+	// var genreFilterValues = [];
+	// if(genreFilter.length==0) genreFilterValues = ["Arcade", "Adventure", "Simulation", "Trivia"];
+	// else genreFilterValues = genreFilter.map((element) => {return element.getAttribute("value");});
 	
-	var ageFilter = Array.from(document.querySelectorAll("input[type=checkbox][id$=Age]:checked"));
-	var ageFilterValues = [];
-	if(ageFilter.length==0) ageFilterValues = ["Elementary", "Middle School", "High School"];
-	else ageFilterValues = ageFilter.map((element) => element.getAttribute("value"));
+	// var ageFilter = Array.from(document.querySelectorAll("input[type=checkbox][id$=Age]:checked"));
+	// var ageFilterValues = [];
+	// if(ageFilter.length==0) ageFilterValues = ["Elementary", "Middle School", "High School"];
+	// else ageFilterValues = ageFilter.map((element) => element.getAttribute("value"));
 	
-	var difficultyFilter = Array.from(document.querySelectorAll("input[type=checkbox][id$=Difficulty]:checked"));
-	var difficultyFilterValues = [];
-	if(difficultyFilter.length==0) difficultyFilterValues = ["Easy", "Medium", "Hard"];
-	else difficultyFilterValues = difficultyFilter.map((element) => element.getAttribute("value"));	
+	// var difficultyFilter = Array.from(document.querySelectorAll("input[type=checkbox][id$=Difficulty]:checked"));
+	// var difficultyFilterValues = [];
+	// if(difficultyFilter.length==0) difficultyFilterValues = ["Easy", "Medium", "Hard"];
+	// else difficultyFilterValues = difficultyFilter.map((element) => element.getAttribute("value"));	
 
 	cards.forEach(card => {
 		const cardClass = card.getAttribute('game-class');
 		const cardGenre = card.getAttribute('game-genre');
 		const cardAge = card.getAttribute('game-age');
 		const cardDifficulty = card.getAttribute('game-difficulty');
-		if (classFilterValues.indexOf(cardClass) >-1 && genreFilterValues.indexOf(cardGenre) >-1 && ageFilterValues.indexOf(cardAge) >-1 && difficultyFilterValues.indexOf(cardDifficulty) >-1) {
+		if (checkedClassFilterValues.indexOf(cardClass) >-1 && checkedGenreFilterValues.indexOf(cardGenre) >-1 && checkedAgeFilterValues.indexOf(cardAge) >-1 && checkedDifficultyFilterValues.indexOf(cardDifficulty) >-1) {
 			card.style.display = card.getAttribute('data-original-display');
 		} else {
 			card.style.display = 'none';
@@ -113,6 +181,7 @@ function applyFilters() {
 }
 
 var gameData = [games[0], games[1], games[2]];
+console.log(gameData);
 const gameLinks = document.querySelectorAll('.container ul li a');
 const video = document.querySelector('.container video');
 const gameIcons = document.querySelectorAll(".game-icon");
