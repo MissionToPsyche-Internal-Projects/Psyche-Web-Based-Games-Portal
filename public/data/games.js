@@ -414,7 +414,7 @@ const games = [
 		src: 'https://missiontopsyche.github.io/tungsten_12a_web_game-se/M.I.S.T/',
 	},
 	{
-		id: 'astroquest-psyche-odyssey',
+		id: "astroquest: psyche's odyssey",
 		title: "Astroquest: Psyche's Odyssey",
 		thumbnail: 'astroquest.png',
 		difficulty: 'Medium',
