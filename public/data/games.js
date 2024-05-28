@@ -412,6 +412,20 @@ const games = [
 		credits: 'Bryant Lopez Roman, Dhalia Nguyen, James Oliver, Joshua Benn, Matthew Myers',
 		description: 'A futuristic adventure exploration 2D platformer using tools inspired by the Psyche spacecraft to navigate a new environment. In the far, distant future, after getting lost and crashing into the old Psyche spacecraft, a space delivery driver ends up stranded on the Psyche asteroid. Find elements throughout 8 unique levels to upgrade your tools, collect 8 tungsten pieces to fix up the ship, and get this poor delivery driver back on track!',
 		src: 'https://missiontopsyche.github.io/tungsten_12a_web_game-se/M.I.S.T/',
+	},
+	{
+		id: 'astroquest-psyche-odyssey',
+		title: "Astroquest: Psyche's Odyssey",
+		thumbnail: 'astroquest.png',
+		difficulty: 'Medium',
+		genre: 'Trivia',
+		age: 'High School',
+		class: 'Tungsten - 2024',
+		gtype: 'tungsten',
+		video: '',
+		credits: 'Avneet Ahuja, Radhesh Choudhary, Johnny Duong, Om Shewale, Curtis Weber',
+		description: 'Buckle up for an adventure aboard the Psyche spacecraft! Maneuver through asteroids, answer mission questions, and boost your score. Prepare for an electrifying space exploration! Skillfully navigate and touchdown on the grand Psyche asteroid for the ultimate thrill.',
+		src: 'https://missiontopsyche.github.io/tungsten_12e_web_game/',
 	}
 	// Add more games as needed
 ];
