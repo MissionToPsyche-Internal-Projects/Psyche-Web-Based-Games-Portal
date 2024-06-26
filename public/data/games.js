@@ -426,7 +426,65 @@ const games = [
 		credits: 'Avneet Ahuja, Radhesh Choudhary, Johnny Duong, Om Shewale, Curtis Weber',
 		description: 'Buckle up for an adventure aboard the Psyche spacecraft! Maneuver through asteroids, answer mission questions, and boost your score. Prepare for an electrifying space exploration! Skillfully navigate and touchdown on the grand Psyche asteroid for the ultimate thrill.',
 		src: 'https://missiontopsyche.github.io/tungsten_12e_web_game/',
-	}
+	},
+	{
+		id: "on console: psyche",
+		title: "On Console: Psyche",
+		thumbnail: 'on-console-psyche.png',
+		difficulty: 'Hard',
+		genre: 'Simulation',
+		age: 'High School',
+		class: 'Tungsten - 2024',
+		gtype: 'tungsten',
+		video: '',
+		credits: 'Garrett Macomber, Jenna Tomko, Jace Sidorchuk, Han Dang',
+		description: "Join the adventure and learn more about the intriguing Psyche asteroid! Dive into the scientific goals of the mission through four engaging minigames, each designed to simulate the real scientific investigations carried out by the spacecraft. A fifth minigame focuses on the spacecraft's orbit, offering a comprehensive understanding of the mission.",
+		src: 'https://missiontopsyche.github.io/tugnsten_12m_web_game-psb/',
+	},
+	{
+		id: "asteriod tycoon",
+		title: "Asteriod Tycoon",
+		thumbnail: 'asteriod tycoon.png',
+		difficulty: 'Medium',
+		genre: 'Arcade',
+		age: 'Middle School',
+		class: 'Tungsten - 2024',
+		gtype: 'tungsten',
+		video: '',
+		credits: 'Justin Lavi, Joseph Dungan, Adrian Mena Altamirano, Abhi Gandavarapu',
+		description: "Welcome to Asteroid Tycoon, a game that puts you at the helm of an interstellar mining empire! Dive into the captivating world of space exploration inspired by the NASA Psyche mission. Strategically extract resources within an asteroid system, advance through a cutting-edge tech tree, explore mysterious caves, and deploy satellites to discover hidden treasures. Are you ready to become the ultimate space tycoon?",
+		src: 'https://missiontopsyche.github.io/tungsten_12n_web_game/',
+	},
+	{
+		id: "psyche rover 9000",
+		title: "Psyche Rover 9000",
+		thumbnail: 'psyche rover 9000.png',
+		difficulty: 'Medium',
+		genre: 'Arcade',
+		age: 'Middle School',
+		class: 'Tungsten - 2024',
+		gtype: 'tungsten',
+		video: '',
+		credits: 'Amber Lee, Reid McMullin, Jacob Meyer, Michael Stanley',
+		description: "Come along on an epic journey in the far future to discover the truth on how planets are formed! You and the latest and greatest NASA Rover, codename PSY, are tasked with being the first to land on the large asteroid and gather intelligence on what metals and other materials the object is made of. Keep in mind, PSY will become more capable the more it learns. That means the more you gather, the better equipped he will become!",
+		src: 'https://missiontopsyche.github.io/tungsten_12o_web_game-psb/',
+	},
+	// {
+	// 	id: "rubber to iron",
+	// 	title: "Rubber to Iron",
+	// 	thumbnail: 'rubber to iron.png',
+	// 	difficulty: 'Medium',
+	// 	genre: 'Adventure',
+	// 	age: 'Middle School',
+	// 	class: 'Tungsten - 2024',
+	// 	gtype: 'tungsten',
+	// 	video: '',
+	// 	credits: 'Wilson Gip, Christian Guarin, Emily Avery, Andre Smith, Kalvin Kouch',
+	// 	description: "The year is 2100. Play as a rover exploring the asteroid, Psyche, as you collect rock samples and navigate through dangerous terrain. Keep an eye on your surroundings and health!",
+	// 	src: 'https://missiontopsyche.github.io/tungsten_12q_web_game-uci/'
+	// }
+
+
 	// Add more games as needed
 ];
 
