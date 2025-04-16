@@ -83,13 +83,13 @@ filterCheckboxes = filterCheckboxes.filter(checkbox => checkbox.id !== "themeTog
 // console.log(filterCheckboxes);
 
 //Default values
-let ClassFilterValues = ["Tungsten - 2024","Silver - 2023", "Copper - 2022", "Nickel - 2021"];
+let ClassFilterValues = ["Iridium - 2025","Tungsten - 2024","Silver - 2023", "Copper - 2022", "Nickel - 2021"];
 let GenreFilterValues = ["Arcade", "Adventure", "Simulation", "Trivia"];
 let AgeFilterValues = ["Elementary", "Middle School", "High School"];
 let DifficultyFilterValues = ["Easy", "Medium", "Hard"];
 
 //Checked values
-let checkedClassFilterValues = ["Tungsten - 2024","Silver - 2023", "Copper - 2022", "Nickel - 2021"];
+let checkedClassFilterValues = ["Iridium - 2025", "Tungsten - 2024","Silver - 2023", "Copper - 2022", "Nickel - 2021"];
 let checkedGenreFilterValues = ["Arcade", "Adventure", "Simulation", "Trivia"];
 let checkedAgeFilterValues = ["Elementary", "Middle School", "High School"];
 let checkedDifficultyFilterValues = ["Easy", "Medium", "Hard"];
