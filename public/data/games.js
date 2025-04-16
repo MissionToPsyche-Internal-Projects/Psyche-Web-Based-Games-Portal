@@ -483,8 +483,23 @@ const games = [
 	// 	description: "The year is 2100. Play as a rover exploring the asteroid, Psyche, as you collect rock samples and navigate through dangerous terrain. Keep an eye on your surroundings and health!",
 	// 	src: 'https://missiontopsyche.github.io/tungsten_12q_web_game-uci/'
 	// }
-
-
+  
+  // IRIDIUM
+  {
+    id: 'psyche bound',
+    title: 'Psychebound',
+    thumbnail: 'psyche_bound.png',
+    difficulty: 'Medium',
+    genre: 'Adventure',
+    age: 'Middle School',
+    class: 'Iridium - 2025',
+    gtype: 'iridium',
+    video: '',
+    credits: 'Jerod Bond, Christian Robinson, William Miller, William Deasy',
+    description:
+      'Crash-landed en route to the Psyche asteroid, Admiral Smith must repair a failing ship, uncover mythic secrets, and survive celestial trials to relaunch humanity’s most ambitious mission.',
+    src: 'https://missiontopsyche-iridium.github.io/iridium_21e_web_game-psb/',
+  },
 	// Add more games as needed
 ];
 
