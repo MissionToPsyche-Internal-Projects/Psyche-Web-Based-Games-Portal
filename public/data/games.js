@@ -500,6 +500,21 @@ const games = [
       'Crash-landed en route to the Psyche asteroid, Admiral Smith must repair a failing ship, uncover mythic secrets, and survive celestial trials to relaunch humanity’s most ambitious mission.',
     src: 'https://missiontopsyche-iridium.github.io/iridium_21e_web_game-psb/',
   },
+	{
+    id: 'psyche exploration',
+    title: 'Psyche Exploration',
+    thumbnail: 'psyche_exploration.png',
+    difficulty: 'Easy',
+    genre: 'Arcade',
+    age: 'Elementary',
+    class: 'Iridium - 2025',
+    gtype: 'iridium',
+    video: '',
+    credits: 'Rina Kawamura, Brandon Martin, McTyler Tong, Evan Nikitin',
+    description:
+      'Embark on a space adventure with four thrilling minigames! Master the rocket Dashboard, time your Launch Sequence, dodge danger in Meteoroid Navigation, and uncover asteroid secrets in Psyche Observation. Precision, timing, and curiosity are your keys to mission success!',
+    src: 'https://missiontopsyche-iridium.github.io/iridium_21j_web_game-asu/',
+  },
 	// Add more games as needed
 ];
 
