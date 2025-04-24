@@ -469,20 +469,20 @@ const games = [
 		description: "Come along on an epic journey in the far future to discover the truth on how planets are formed! You and the latest and greatest NASA Rover, codename PSY, are tasked with being the first to land on the large asteroid and gather intelligence on what metals and other materials the object is made of. Keep in mind, PSY will become more capable the more it learns. That means the more you gather, the better equipped he will become!",
 		src: 'https://missiontopsyche.github.io/tungsten_12o_web_game-psb/',
 	},
-	// {
-	// 	id: "rubber to iron",
-	// 	title: "Rubber to Iron",
-	// 	thumbnail: 'rubber to iron.png',
-	// 	difficulty: 'Medium',
-	// 	genre: 'Adventure',
-	// 	age: 'Middle School',
-	// 	class: 'Tungsten - 2024',
-	// 	gtype: 'tungsten',
-	// 	video: '',
-	// 	credits: 'Wilson Gip, Christian Guarin, Emily Avery, Andre Smith, Kalvin Kouch',
-	// 	description: "The year is 2100. Play as a rover exploring the asteroid, Psyche, as you collect rock samples and navigate through dangerous terrain. Keep an eye on your surroundings and health!",
-	// 	src: 'https://missiontopsyche.github.io/tungsten_12q_web_game-uci/'
-	// }
+	{
+		id: "rubber to iron",
+		title: "Rubber to Iron",
+		thumbnail: 'rubber to iron.png',
+		difficulty: 'Medium',
+		genre: 'Adventure',
+		age: 'Middle School',
+		class: 'Tungsten - 2024',
+		gtype: 'tungsten',
+		video: '',
+		credits: 'Wilson Gip, Christian Guarin, Emily Avery, Andre Smith, Kalvin Kouch',
+		description: "The year is 2100. Play as a rover exploring the asteroid, Psyche, as you collect rock samples and navigate through dangerous terrain. Keep an eye on your surroundings and health!",
+		src: 'https://missiontopsyche.github.io/tungsten_12q_web_game-uci/'
+	},
   
   // IRIDIUM
   {
@@ -517,5 +517,6 @@ const games = [
   },
 	// Add more games as needed
 ];
+console.log(games.length);
 
 export default games;
