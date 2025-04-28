@@ -515,6 +515,21 @@ const games = [
       'Embark on a space adventure with four thrilling minigames! Master the rocket Dashboard, time your Launch Sequence, dodge danger in Meteoroid Navigation, and uncover asteroid secrets in Psyche Observation. Precision, timing, and curiosity are your keys to mission success!',
     src: 'https://missiontopsyche-iridium.github.io/iridium_21j_web_game-asu/',
   },
+  {
+    id: 'around psyche in 448 days',
+    title: 'Around Psyche in 448 Days',
+    thumbnail: 'around psyche in 448 days.png',
+    difficulty: 'Easy',
+    genre: 'Arcade',
+    age: 'Elementary',
+    class: 'Iridium - 2025',
+    gtype: 'iridium',
+    video: '',
+    credits: 'Gianfranco Bruno, Benjamin Edens, Jessica McBride, Olivia Meier, Kaedon Pense, Austin Rodriguez',
+    description:
+      'Learn about the four stages of data collection the Psyche mission spacecraft will conduct on its mission with these four levels: Characterization, Topography, Gravity Science, and Elemental Mapping.',
+    src: 'https://missiontopsyche-iridium.github.io/iridium_21c_web_game-uark/',
+  },
 	// Add more games as needed
 ];
 console.log(games.length);
