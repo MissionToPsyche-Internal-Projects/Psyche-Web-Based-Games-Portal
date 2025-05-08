@@ -531,8 +531,8 @@ const games = [
     src: 'https://missiontopsyche-iridium.github.io/iridium_21c_web_game-uark/',
   },
 	{
-    id: 'super pysched',
-    title: 'Super Pysched',
+    id: 'super psyched',
+    title: 'Super Psyched',
     thumbnail: 'super_psyched.png',
     difficulty: 'Medium',
     genre: 'Adventure',
