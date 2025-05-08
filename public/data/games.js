@@ -530,6 +530,21 @@ const games = [
       'Learn about the four stages of data collection the Psyche mission spacecraft will conduct on its mission with these four levels: Characterization, Topography, Gravity Science, and Elemental Mapping.',
     src: 'https://missiontopsyche-iridium.github.io/iridium_21c_web_game-uark/',
   },
+	{
+    id: 'super pysched',
+    title: 'Super Pysched',
+    thumbnail: 'super_psyched.png',
+    difficulty: 'Medium',
+    genre: 'Adventure',
+    age: 'Middle School',
+    class: 'Iridium - 2025',
+    gtype: 'iridium',
+    video: '',
+    credits: 'Colin Curry, Grace Lane, Hanjin Jacobs, Kevin Bui, Lyle Vitales',
+    description:
+      'Super Psyched is a sci-fi adventure where you play as Kuiper, a lone explorer racing to reach the Control Room and launch a vital spacecraft. Help him navigate obstacles and assist the onboard computer to complete mission-critical tasks before time runs out.',
+    src: 'https://missiontopsyche-iridium.github.io/iridium_21g_web_game-su/',
+  },
 	// Add more games as needed
 ];
 console.log(games.length);
