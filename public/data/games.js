@@ -560,6 +560,20 @@ const games = [
       'Psyche Simulation is an immersive space exploration game where players embark on scientific missions to the metallic asteroid Psyche. Choose from tasks like extracting metal deposits, capturing surface imagery, or collecting and returning geological samples—all while experiencing the challenges of operating on a distant, alien world.',
     src: 'https://missiontopsyche-iridium.github.io/iridium_22a_m-type_sim-asu/',
   },
+	{
+    id: 'core informant psyche',
+    title: 'Core Informant Psyche',
+    thumbnail: 'core_informant_psyche.png',
+    difficulty: 'Medium',
+    genre: 'Simulation',
+    age: 'Middle School',
+    class: 'Iridium - 2025',
+    gtype: 'iridium',
+    video: '',
+    credits: 'Daryl Kyle, Eric Romero, Maddison Ives, Mitchell Doran, Tristan Crawford',
+    description: 'Core Informant Psyche is an interactive science simulation where the player explores the Psyche asteroid, navigating its rugged terrain to collect surface samples. Using the right tools and responding to mission prompts, players uncover valuable geological data from the Edge of Crater Zone.',
+    src: 'https://missiontopsyche-iridium.github.io/iridium_22d_m-type_sim-se/',
+  },
 	// Add more games as needed
 ];
 console.log(games.length);
