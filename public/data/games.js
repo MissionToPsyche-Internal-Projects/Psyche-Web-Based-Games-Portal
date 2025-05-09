@@ -588,6 +588,20 @@ const games = [
     description: 'Psyche Exploration is a space engineering simulation game where players join an elite team to design and launch advanced space probes. Test pre-built models or build your own custom probe to travel vast distances, collect data, and expand humanity’s understanding of deep space.',
     src: 'https://missiontopsyche-iridium.github.io/iridium_21f_web_game-se/',
   },
+	{
+    id: 'Psyche Investigator',
+    title: 'Psyche Investigator',
+    thumbnail: 'psyche_investigator.png',
+    difficulty: 'Medium',
+    genre: 'Arcade',
+    age: 'Middle School',
+    class: 'Iridium - 2025',
+    gtype: 'iridium',
+    video: '',
+    credits: 'Andrew Rodriguez, Cole Camacho, Elias Hilaneh, Munghoon Cho',
+    description: 'Explore the Psyche asteroid through three scientific missions: analyze topography in Imager mode, trace magnetic fields in Magnetometer, and match elemental compositions in Gamma Ray & Neutron Spectrometry. Use real asteroid data to uncover Psyche’s secrets and complete your science objectives.',
+    src: 'https://missiontopsyche-iridium.github.io/iridium_21h_web_game-asu/',
+  },
 	// Add more games as needed
 ];
 console.log(games.length);
