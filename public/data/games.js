@@ -561,8 +561,8 @@ const games = [
     src: 'https://missiontopsyche-iridium.github.io/iridium_22a_m-type_sim-asu/',
   },
 	{
-    id: 'core informant psyche',
-    title: 'Core Informant Psyche',
+    id: 'Core Informant: Psyche',
+    title: 'Core Informant: Psyche',
     thumbnail: 'core_informant_psyche.png',
     difficulty: 'Medium',
     genre: 'Simulation',
