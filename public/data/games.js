@@ -571,7 +571,7 @@ const games = [
     gtype: 'iridium',
     video: '',
     credits: 'Daryl Kyle, Eric Romero, Maddison Ives, Mitchell Doran, Tristan Crawford',
-    description: 'Core Informant Psyche is an interactive science simulation where the player explores the Psyche asteroid, navigating its rugged terrain to collect surface samples. Using the right tools and responding to mission prompts, players uncover valuable geological data from the Edge of Crater Zone.',
+    description: 'Core Informant: Psyche is an interactive science simulation where the player explores the Psyche asteroid, navigating its rugged terrain to collect surface samples. Using the right tools and responding to mission prompts, players uncover valuable geological data from the Edge of Crater Zone.',
     src: 'https://missiontopsyche-iridium.github.io/iridium_22d_m-type_sim-se/',
   },
 	{
