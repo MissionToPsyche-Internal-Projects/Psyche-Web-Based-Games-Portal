@@ -545,6 +545,21 @@ const games = [
       'Super Psyched is a sci-fi adventure where you play as Kuiper, a lone explorer racing to reach the Control Room and launch a vital spacecraft. Help him navigate obstacles and assist the onboard computer to complete mission-critical tasks before time runs out.',
     src: 'https://missiontopsyche-iridium.github.io/iridium_21g_web_game-su/',
   },
+	{
+    id: 'psyche simulation',
+    title: 'Psyche Simulation',
+    thumbnail: 'psyche_simulation.png',
+    difficulty: 'Medium',
+    genre: 'Web Experience',
+    age: 'Middle School',
+    class: 'Iridium - 2025',
+    gtype: 'iridium',
+    video: '',
+    credits: 'Carlos Rangel, Evander Laahs, Ilia Sorokin, Tran Hoang Vu, William Nelson',
+    description:
+      'Psyche Simulation is an immersive space exploration game where players embark on scientific missions to the metallic asteroid Psyche. Choose from tasks like extracting metal deposits, capturing surface imagery, or collecting and returning geological samples—all while experiencing the challenges of operating on a distant, alien world.',
+    src: 'https://missiontopsyche-iridium.github.io/iridium_22a_m-type_sim-asu/',
+  },
 	// Add more games as needed
 ];
 console.log(games.length);
