@@ -602,6 +602,20 @@ const games = [
     description: 'Explore the Psyche asteroid through three scientific missions: analyze topography in Imager mode, trace magnetic fields in Magnetometer, and match elemental compositions in Gamma Ray & Neutron Spectrometry. Use real asteroid data to uncover Psyche’s secrets and complete your science objectives.',
     src: 'https://missiontopsyche-iridium.github.io/iridium_21h_web_game-asu/',
   },
+	{
+    id: 'Psyche Data Recon',
+    title: 'Psyche Data Recon',
+    thumbnail: 'psyche_data_recon.png',
+    difficulty: 'Medium',
+    genre: 'Arcade',
+    age: 'Middle School',
+    class: 'Iridium - 2025',
+    gtype: 'iridium',
+    video: '',
+    credits: 'Anthony Mikulcic, Assaad Al-Assaad, Dylan Monreal, Ruslan Averin',
+    description: 'Pilot a research rocket through space in Psyche Data Recon, navigating a designated path while avoiding asteroids to deliver critical data from the Psyche mission. Test your reflexes and precision in this fast-paced spaceflight simulation.',
+    src: 'https://missiontopsyche-iridium.github.io/iridium_21l_web_game-csu/',
+  },
 	// Add more games as needed
 ];
 console.log(games.length);
