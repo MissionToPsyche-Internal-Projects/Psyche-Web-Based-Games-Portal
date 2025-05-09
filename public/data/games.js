@@ -574,6 +574,20 @@ const games = [
     description: 'Core Informant Psyche is an interactive science simulation where the player explores the Psyche asteroid, navigating its rugged terrain to collect surface samples. Using the right tools and responding to mission prompts, players uncover valuable geological data from the Edge of Crater Zone.',
     src: 'https://missiontopsyche-iridium.github.io/iridium_22d_m-type_sim-se/',
   },
+	{
+    id: 'Psyche Exploration: Build and Launch',
+    title: 'Psyche Exploration: Build and Launch',
+    thumbnail: 'psyche_exploration_build_and_launch.png',
+    difficulty: 'Medium',
+    genre: 'Simulation',
+    age: 'Middle School',
+    class: 'Iridium - 2025',
+    gtype: 'iridium',
+    video: '',
+    credits: 'Shawn Chen, Forrest Cranmer, Hannah Darcy, Teague Hansen, Nick Rabine',
+    description: 'Psyche Exploration is a space engineering simulation game where players join an elite team to design and launch advanced space probes. Test pre-built models or build your own custom probe to travel vast distances, collect data, and expand humanity’s understanding of deep space.',
+    src: 'https://missiontopsyche-iridium.github.io/iridium_21f_web_game-se/',
+  },
 	// Add more games as needed
 ];
 console.log(games.length);
