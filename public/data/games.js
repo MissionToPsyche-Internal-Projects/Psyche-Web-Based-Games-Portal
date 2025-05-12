@@ -619,7 +619,7 @@ const games = [
 	{
     id: 'Rhythms of Psyche',
     title: 'Rhythms of Psyche',
-    thumbnail: 'rhytms_of_psyche.png',
+    thumbnail: 'rhytms_of_psyche.jpg',
     difficulty: 'Medium',
     genre: 'Arcade',
     age: 'Middle School',
@@ -629,6 +629,20 @@ const games = [
     credits: 'Warren Wa, Maksym Yarosh, Edward Cabrera, Dawnielle Hardin',
     description: 'Players embark on a virtual mission to the asteroid Psyche, guiding their satellite through the solar system. As the satellite travels through space, solar flares fall in sync with the background music. To maintain high fuel levels, players must hit the flares in time with the rhythm. Missing flares causes the satellite’s fuel to decrease. Blending entertainment with scientifically accurate storytelling, the game was designed to spark curiosity about science and NASA’s mission objectives, making space exploration both accessible and engaging for teens.',
     src: 'https://missiontopsyche-iridium.github.io/iridium_21n_web_game-csu/',
+  },
+	{
+    id: 'Psyche Surface Quest',
+    title: 'Psyche Surface Quest',
+    thumbnail: 'psyche_surface_quest.jpg',
+    difficulty: 'Easy',
+    genre: 'Adventure',
+    age: 'Elementary',
+    class: 'Iridium - 2025',
+    gtype: 'iridium',
+    video: '',
+    credits: 'Manikdeep Kaur, Angelo Figueroa, Djordje Marinkovic, Afnan Haque',
+    description: 'In Psyche Surface Quest, players take control of a rover exploring the metallic asteroid Psyche. Navigate rugged terrain, jump over obstacles, and collect valuable samples to complete each mission level.',
+		src: 'https://missiontopsyche-iridium.github.io/iridium_21p_web_game-csu/',
   },
 	// Add more games as needed
 ];
