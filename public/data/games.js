@@ -644,6 +644,20 @@ const games = [
     description: 'In Psyche Surface Quest, players take control of a rover exploring the metallic asteroid Psyche. Navigate rugged terrain, jump over obstacles, and collect valuable samples to complete each mission level.',
 		src: 'https://missiontopsyche-iridium.github.io/iridium_21p_web_game-csu/',
   },
+	{
+    id: 'Psyche Miner',
+    title: 'Psyche Miner',
+    thumbnail: 'psyche_miner.jpg',
+    difficulty: 'Medium',
+    genre: 'Simulation',
+    age: 'High School',
+    class: 'Iridium - 2025',
+    gtype: 'iridium',
+    video: '',
+    credits: 'Imane Lamine, Maxwell S. Wasserbauer, Hasan Hameed, Michael Berkley',
+    description: 'Psyche Miner is a 2D asteroid mining simulator that puts players in charge of resource extraction on the metallic asteroid Psyche. Over 15 in-game days, mine materials, upgrade your tools, and uncover real scientific facts tied to NASA’s mission—all in a fast-paced, educational gameplay loop built with the Godot Engine.',
+		src: 'https://missiontopsyche-iridium.github.io/iridium_21q_web_game-csu/',
+  },
 	// Add more games as needed
 ];
 console.log(games.length);
