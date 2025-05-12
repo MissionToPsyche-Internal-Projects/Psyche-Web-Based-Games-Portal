@@ -658,6 +658,20 @@ const games = [
     description: 'Psyche Miner is a 2D asteroid mining simulator that puts players in charge of resource extraction on the metallic asteroid Psyche. Over 15 in-game days, mine materials, upgrade your tools, and uncover real scientific facts tied to NASA’s mission—all in a fast-paced, educational gameplay loop built with the Godot Engine.',
 		src: 'https://missiontopsyche-iridium.github.io/iridium_21q_web_game-csu/',
   },
+	{
+    id: 'Asteroids and Trivia',
+    title: 'Asteroids and Trivia',
+    thumbnail: 'asteroids_and_trivia.png',
+    difficulty: 'Medium',
+    genre: 'Arcade',
+    age: 'Middle School',
+    class: 'Iridium - 2025',
+    gtype: 'iridium',
+    video: '',
+    credits: 'Colin Bowser, George Wieland, Joseph Gregory, Jason Rao, Joseph Linton, Damian Wilding, Benton Hanson',
+    description: 'A fun and educational web-based game that introduces players to NASA’s Psyche mission. Test your knowledge in the Trivia Challenge and navigate space in an easy-to-play arcade mini-game—all while learning about the metal-rich asteroid Psyche and space exploration.',
+		src: 'https://missiontopsyche-iridium.github.io/iridium_21k_web_game-byu-i/',
+  },
 	// Add more games as needed
 ];
 console.log(games.length);
