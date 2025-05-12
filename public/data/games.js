@@ -616,6 +616,20 @@ const games = [
     description: 'Pilot a research rocket through space in Psyche Data Recon, navigating a designated path while avoiding asteroids to deliver critical data from the Psyche mission. Test your reflexes and precision in this fast-paced spaceflight simulation.',
     src: 'https://missiontopsyche-iridium.github.io/iridium_21l_web_game-csu/',
   },
+	{
+    id: 'Rhythms of Psyche',
+    title: 'Rhythms of Psyche',
+    thumbnail: 'rhytms_of_psyche.png',
+    difficulty: 'Medium',
+    genre: 'Arcade',
+    age: 'Middle School',
+    class: 'Iridium - 2025',
+    gtype: 'iridium',
+    video: '',
+    credits: 'Warren Wa, Maksym Yarosh, Edward Cabrera, Dawnielle Hardin',
+    description: 'Players embark on a virtual mission to the asteroid Psyche, guiding their satellite through the solar system. As the satellite travels through space, solar flares fall in sync with the background music. To maintain high fuel levels, players must hit the flares in time with the rhythm. Missing flares causes the satellite’s fuel to decrease. Blending entertainment with scientifically accurate storytelling, the game was designed to spark curiosity about science and NASA’s mission objectives, making space exploration both accessible and engaging for teens.',
+    src: 'https://missiontopsyche-iridium.github.io/iridium_21n_web_game-csu/',
+  },
 	// Add more games as needed
 ];
 console.log(games.length);
