@@ -686,6 +686,20 @@ const games = [
     description: 'Asteroid Mission puts you in control of a satellite navigating through space debris. Move left and right to dodge falling obstacles and collect essential parts to complete your mission. Stay sharp and survive the chaos of the asteroid field!',
 		src: 'https://missiontopsyche-iridium.github.io/iridium_18b_ar_xr-asu/',
   },
+	{
+    id: 'Explore Psyche XR',
+    title: 'Explore Psyche XR',
+    thumbnail: 'explore_psyche_xr.png',
+    difficulty: 'Medium',
+    genre: 'Web Experience',
+    age: 'Middle School',
+    class: 'Iridium - 2025',
+    gtype: 'iridium',
+    video: '',
+    credits: 'Adonias Daniel, Santiago Blanco, Andre Smith, Ankita Sahu',
+    description: 'Explore Psyche XR is an immersive WebXR showcase featuring interactive experiences built with AFrame and Blender that bring NASA\'s Mission to Psyche to life. Step inside the spacecraft, test your knowledge with trivia, and hunt for mission artifacts in engaging AR environments.',
+		src: 'https://missiontopsyche-iridium.github.io/iridium_18c_ar_xr-vcu/',
+  },
 	// Add more games as needed
 ];
 console.log(games.length);
