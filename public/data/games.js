@@ -700,6 +700,20 @@ const games = [
     description: 'Explore Psyche XR is an immersive WebXR showcase featuring interactive experiences built with AFrame and Blender that bring NASA\'s Mission to Psyche to life. Step inside the spacecraft, test your knowledge with trivia, and hunt for mission artifacts in engaging AR environments.',
 		src: 'https://missiontopsyche-iridium.github.io/iridium_18c_ar_xr-vcu/',
   },
+	{
+    id: 'Psyche Quest',
+    title: 'Psyche Quest',
+    thumbnail: 'psyche_quest.png',
+    difficulty: 'Medium',
+    genre: 'Arcade',
+    age: 'Middle School',
+    class: 'Iridium - 2025',
+    gtype: 'iridium',
+    video: '',
+    credits: 'Ilia Rubashkin, Donovan Harp, Jake Gresh, Tanishq Manikya, Somesh Harshvardhan Gopi Krishna',
+    description: 'An educational Unity-based web game inspired by NASA\'s Psyche mission. Explore space through four fun minigames themed on spacecraft instruments—repair your ship, launch rockets, play space tic-tac-toe, and take on asteroid quizzes—all while learning about deep space science!',
+		src: 'https://missiontopsyche-iridium.github.io/iridium_21a_web_game-asu/',
+  },
 	// Add more games as needed
 ];
 console.log(games.length);
