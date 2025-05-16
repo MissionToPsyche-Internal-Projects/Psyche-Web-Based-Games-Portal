@@ -714,6 +714,20 @@ const games = [
     description: 'An educational Unity-based web game inspired by NASA\'s Psyche mission. Explore space through four fun minigames themed on spacecraft instruments—repair your ship, launch rockets, play space tic-tac-toe, and take on asteroid quizzes—all while learning about deep space science!',
 		src: 'https://missiontopsyche-iridium.github.io/iridium_21a_web_game-asu/',
   },
+	{
+    id: 'Psyche Salvage',
+    title: 'Psyche Salvage',
+    thumbnail: 'psyche_salvage.jpg',
+    difficulty: 'Medium',
+    genre: 'Adventure',
+    age: 'Middle School',
+    class: 'Iridium - 2025',
+    gtype: 'iridium',
+    video: '',
+    credits: 'Fonz Hamilton, Sonika Prasad, Jacob Allen, Kaivan Mayelzadeh, Robert DeLucia',
+    description: 'Psyche Salvage: Pieces of the Past is a web-based \'edutainment\' video game made with the Unity game engine. The game blends educational content about the ASU/NASA Psyche mission with exciting wave-based gameplay.',
+		src: 'https://missiontopsyche-iridium.github.io/iridium_21b_web_game-asu/',
+  },
 	// Add more games as needed
 ];
 console.log(games.length);
