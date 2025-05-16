@@ -742,6 +742,20 @@ const games = [
     description: 'Lula Llama and the Mission to Psyche is an interactive, educational web-based game that captures the excitement of the NASA Psyche mission through the adventures of a pink llama named Lula. Through five unique mini-games, the player learns fun facts about the Psyche mission, all while enjoying an interactive gameplay experience.',
 		src: 'https://missiontopsyche-iridium.github.io/iridium_21d_web_game-se/',
   },
+	{
+    id: 'PsycheVision',
+    title: 'PsycheVision',
+    thumbnail: 'psyche_vision.jpg',
+    difficulty: 'Medium',
+    genre: 'Web Experience',
+    age: 'Middle School',
+    class: 'Iridium - 2025',
+    gtype: 'iridium',
+    video: '',
+    credits: 'Collin Miller, Nicole Garcia, Ryan McManamy, Emily Dinaro, Ryan Dinville',
+    description: 'Developed two interactive web applications for the Psyche mission—one showcasing the satellite\'s components and mission phases, and another exploring the asteroid\'s lore, featuring a mini-game to locate Psyche using a virtual telescope.',
+		src: 'https://missiontopsyche-iridium.github.io/iridium_18e_ar_xr-se/',
+  },
 	// Add more games as needed
 ];
 console.log(games.length);
