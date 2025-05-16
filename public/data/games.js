@@ -728,6 +728,20 @@ const games = [
     description: 'Psyche Salvage: Pieces of the Past is a web-based \'edutainment\' video game made with the Unity game engine. The game blends educational content about the ASU/NASA Psyche mission with exciting wave-based gameplay.',
 		src: 'https://missiontopsyche-iridium.github.io/iridium_21b_web_game-asu/',
   },
+	{
+    id: 'Lula Llama',
+    title: 'Lula Llama',
+    thumbnail: 'lula_llama.jpg',
+    difficulty: 'Medium',
+    genre: 'Adventure',
+    age: 'Middle School',
+    class: 'Iridium - 2025',
+    gtype: 'iridium',
+    video: '',
+    credits: 'Paul Provence, Corael Thompson, Peter Dimian, Jesus Ramos, Elizabeth Akopov',
+    description: 'Lula Llama and the Mission to Psyche is an interactive, educational web-based game that captures the excitement of the NASA Psyche mission through the adventures of a pink llama named Lula. Through five unique mini-games, the player learns fun facts about the Psyche mission, all while enjoying an interactive gameplay experience.',
+		src: 'https://missiontopsyche-iridium.github.io/iridium_21d_web_game-se/',
+  },
 	// Add more games as needed
 ];
 console.log(games.length);
