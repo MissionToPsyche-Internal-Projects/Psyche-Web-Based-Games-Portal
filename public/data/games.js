@@ -542,7 +542,7 @@ const games = [
     video: '',
     credits: 'Colin Curry, Grace Lane, Hanjin Jacobs, Kevin Bui, Lyle Vitales',
     description:
-      'Super Psyched is a sci-fi adventure where you play as Kuiper, a lone explorer racing to reach the Control Room and launch a vital spacecraft. Help him navigate obstacles and assist the onboard computer to complete mission-critical tasks before time runs out.',
+      'Super Psyched is an immersive, educational experience inspired by NASA’s Psyche mission. Players begin by guiding Kuiper, the mission leader, as they make their way to the control room. From there, they must complete a series of five engaging minigames, each simulating a unique aspect of the mission. Whether it’s spacecraft navigation or asteroid composition analysis, players will explore and interact with the science and technology behind the journey to Psyche.',
     src: 'https://missiontopsyche-iridium.github.io/iridium_21g_web_game-su/',
   },
 	{
